@@ -1,0 +1,13 @@
+table, th, td {
+    border: 1px solid rgb(36, 7, 7);
+}
+table {
+        border-collapse: collapse;
+        width: 100%;
+        flex:1;
+    }
+    
+    th {
+        background-color: forestgreen;
+        color: white;
+    }

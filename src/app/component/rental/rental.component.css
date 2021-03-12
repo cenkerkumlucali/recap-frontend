@@ -1,0 +1,11 @@
+table, th, td {
+    border: 1px solid rgb(36, 7, 7);
+}
+th {
+    background-color: forestgreen;
+    color: white;
+}
+table{
+    margin-left:110%;
+    margin-top: -201px;
+}
