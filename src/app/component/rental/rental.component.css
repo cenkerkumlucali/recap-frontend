@@ -2,7 +2,7 @@ table, th, td {
     border: 1px solid rgb(36, 7, 7);
 }
 th {
-    background-color: forestgreen;
+    background-color: rgb(77, 221, 190);
     color: white;
 }
 h2{
