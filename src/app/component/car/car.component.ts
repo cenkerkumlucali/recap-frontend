@@ -9,6 +9,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarComponent implements OnInit {
 cars:Car[]=[]
+dataLoaded=false;
   constructor(private carService:CarService) { }
 
   ngOnInit(): void {
@@ -17,6 +18,7 @@ cars:Car[]=[]
 getCar(){
 this.carService.getCar().subscribe(response=>{
   this.cars=response.data
+  this.dataLoaded=true
 })
 }
 }

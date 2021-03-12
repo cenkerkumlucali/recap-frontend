@@ -9,6 +9,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class CustomerComponent implements OnInit {
   customers:Customer[]=[]
+  dataLoaded=false;
   constructor(private customerService:CustomerService) { }
 
   ngOnInit(): void {
@@ -17,6 +18,7 @@ export class CustomerComponent implements OnInit {
 getCustomer(){
   this.customerService.getCustomer().subscribe(response=>{
     this.customers=response.data
+    this.dataLoaded=true;
   })
 }
 }

@@ -1,14 +1,16 @@
- <table class="table">
-        <thead>
-            <tr>
-                <th>Araba </th>
-                <th>Isim Soyisim</th>
-           
-            </tr>
-        </thead>
-    <tr *ngFor="let rental of rentals">
-        <td>{{rental.brandName}}</td>
-        <td>{{rental.userName}}</td>
-
+<h2>Kiralama</h2>
+<div *ngIf="dataLoaded==false"  class="spinner-border text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<table *ngIf="dataLoaded==true" class="table">
+  <thead>
+    <tr>
+      <th>Araba</th>
+      <th>Isim Soyisim</th>
     </tr>
+  </thead>
+  <tr *ngFor="let rental of rentals">
+    <td>{{ rental.brandName }}</td>
+    <td>{{ rental.userName }}</td>
+  </tr>
 </table>
