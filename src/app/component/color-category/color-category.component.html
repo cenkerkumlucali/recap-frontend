@@ -1,1 +1,26 @@
-<p>color-category works!</p>
+<div *ngIf="dataLoaded == false" class="text-center">
+    <div class="spinner-border text-dark" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <ul *ngIf="dataLoaded == true" class="list-group">
+    <li 
+    routerLink="/cars" 
+    [ngClass]="getAllColorClass()" 
+    aria-current="true">Tüm renkler</li>
+  
+    <li 
+    routerLink="/cars/color/{{color.colorId}}"
+    (click)="setCurrentColor(color)" *ngFor="let color of colors" [ngClass]="getCurrentColorClass(color)">
+      {{color.colorName}}
+    </li>
+  </ul>
+  <ul class="list-group">
+    <li [class]="getAllColorClass()" routerLink="/cars" >Tüm Ürünler</li>
+      <li (click)="setCurrentColor(color)"
+      routerLink="/cars/color/{{color.colorId}}" 
+      *ngFor="let color of colors"
+      [class]="getCurrentColorClass(color)">
+      {{color.colorName}} </li>
+    </ul>
+  <h5 *ngIf="currentColor">{{currentColor.colorName}} seçtiniz</h5>

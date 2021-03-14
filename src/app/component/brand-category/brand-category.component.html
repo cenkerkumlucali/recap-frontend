@@ -1,9 +1,17 @@
-<ul class="list-group">
-    <li [class]="getAllBrandClass()" routerLink="/cars" >Tüm Ürünler</li>
-      <li (click)="setCurrentBrand(brand)"
-      routerLink="/cars/brand/{{brand.brandId}}" 
-      *ngFor="let brand of brands"
-      [class]="getCurrentBrandClass(brand)">
-      {{brand.brandName}} </li>
-    </ul>
-  <h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h5>
+<div *ngIf="dataLoaded == false" class="text-center">
+  <div class="spinner-border text-dark" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<ul *ngIf="dataLoaded == true" class="list-group">
+  <li 
+  routerLink="/cars" 
+  [ngClass]="getAllBrandClass()" 
+  aria-current="true">Tüm markalar</li>
+
+  <li 
+  routerLink="/cars/brand/{{brand.brandId}}"
+  (click)="setCurrentBrand(brand)" *ngFor="let brand of brands" [ngClass]="getCurrentBrandClass(brand)">
+    {{brand.brandName}}
+  </li>
+</ul>
