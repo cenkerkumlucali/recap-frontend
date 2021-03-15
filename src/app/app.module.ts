@@ -8,44 +8,32 @@ import { CarComponent } from './component/car/car.component';
 import { BrandComponent } from './component/brand/brand.component';
 import { NaviComponent } from './component/navi/navi.component';
 import {HttpClientModule} from '@angular/common/http';
-
-
 import { RentalComponent } from './component/rental/rental.component';
-import { ListGroupComponent } from './component/list-group/list-group.component';
-
-
-
-import { RealCarComponent } from './component/car/real-car/real-car.component';
-import { ColorCategoryComponent } from './component/color-category/color-category.component';
-import { ColorsComponent } from './component/colors/colors.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { BrandCategoryComponent } from './component/brand-category/brand-category.component';
+import { ColorComponent } from './component/color/color.component';
+import { CarDetailComponent } from './component/car/car-detail/car-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ColorsComponent,
+
     CarComponent,
     BrandComponent,
     NaviComponent,
     CustomerComponent,
     RentalComponent,
-    ListGroupComponent,
     BrandCategoryComponent,
- 
-
- 
- 
-
-    RealCarComponent,
- 
-
-    ColorCategoryComponent,
+    ColorComponent,
+    CarDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
