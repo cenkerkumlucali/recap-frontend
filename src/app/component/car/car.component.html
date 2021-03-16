@@ -4,7 +4,7 @@
 </div>
 <div class="row" *ngIf="dataLoaded==true">
   <div *ngFor="let car of cars" class="card" style="width: 20rem;">
-  <!-- <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" alt="{{car.description}} Image" width="auto" height="auto"> -->
+  <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" alt="{{car.description}} Image" width="auto" height="auto">
     <div  class="card-body">
       <h5 class="card-title">{{car.description}}</h5>
     </div >

@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment';
 export class CarComponent implements OnInit {
   cars: Car[] = [];
   dataLoaded = false;
-  //imageBasePath = environment.baseUrl
-  apiUrl: 'https://localhost:44327/'
+  imageBasePath = environment.baseUrl;
+
 
   constructor(private carService: CarService, private activatedRoute:ActivatedRoute) {}
 
@@ -31,7 +31,7 @@ export class CarComponent implements OnInit {
   }
 
   getCars() {
-    this.carService.getAllCarDetails().subscribe((response) => {
+    this.carService.getCarDetails().subscribe((response) => {
       this.cars = response.data;
       console.log(response)
       this.dataLoaded = true;
@@ -51,5 +51,6 @@ export class CarComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
+  
 
 }
