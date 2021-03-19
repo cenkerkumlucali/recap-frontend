@@ -13,27 +13,37 @@ export class CarComponent implements OnInit {
   cars: Car[] = [];
   dataLoaded = false;
   imageBasePath = environment.baseUrl;
+  filterText=""
 
 
   constructor(private carService: CarService, private activatedRoute:ActivatedRoute) {}
 
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
-      if(params["brandId"]){
+    this.activatedRoute.queryParams.subscribe(params=>{
+      if(params["brandId"] && params["colorId"]){
+        this.getCarDetails(params["brandId"],params["colorId"])
+      }else if(params["brandId"]){
         this.getCarsByBrand(params["brandId"])
       }else if(params["colorId"]){
         this.getCarsByColor(params["colorId"])
       }else{
-        this.getCars()
+        this.getCars();
       }
     })
   }
 
   getCars() {
-    this.carService.getCarDetails().subscribe((response) => {
+    this.carService.getAllCarDetails().subscribe((response) => {
       this.cars = response.data;
       console.log(response)
+      this.dataLoaded = true;
+    });
+  }
+
+  getCarDetails(brandId:number,colorId:number){
+    this.carService.getCarDetails(brandId,colorId).subscribe((response) => {
+      this.cars = response.data;
       this.dataLoaded = true;
     });
   }
@@ -45,8 +55,8 @@ export class CarComponent implements OnInit {
     });
   }
 
-  getCarsByColor(brandId:number) {
-    this.carService.getCarDetailsByColor(brandId).subscribe((response) => {
+  getCarsByColor(colorId:number) {
+    this.carService.getCarDetailsByColor(colorId).subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
     });

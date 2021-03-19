@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-brand-category',
@@ -8,36 +10,56 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brand-category.component.css']
 })
 export class BrandCategoryComponent implements OnInit {
+  filterBrandText: string;
   brands: Brand[] = [];
-  currentBrand: Brand;
-  dataLoaded=false;
-  constructor(private brandService: BrandService) {}
+  currentBrand?: Brand;
+  dataLoaded = false;
+  constructor(
+    private brandService: BrandService,
+    private router: Router,
+    private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getBrands();
   }
+
   getBrands() {
     this.brandService.getBrand().subscribe((response) => {
       this.brands = response.data;
       this.dataLoaded = true;
     });
   }
-  setCurrentBrand(brand: Brand) {
-    this.currentBrand = brand;
+
+  setQueryParams(brand:Brand){
+    if(brand){
+      this.setCurrentBrand()
+    }else{
+      this.clearCurrentBrand()
+    }
   }
-  getCurrentBrandClass(brand: Brand) {
+
+  setCurrentBrand() {
+    this.router.navigate(['cars/'], { queryParams: { brandId: this.currentBrand?.brandId }, queryParamsHandling: 'merge', relativeTo: this.route});
+  }
+
+  isCurrentBrand(brand: Brand) {
     if (brand == this.currentBrand) {
-      return "list-group-item active"
-    }else{
-      return "list-group-item "
+      return true
+    } else {
+      return false
     }
   }
-  getAllBrandClass(){
+
+  isAllBrandSelected(){
     if(!this.currentBrand){
-      return "list-group-item active"
+      return true;
     }else{
-      return "list-group-item "
+      return false;
     }
   }
-  
+
+  clearCurrentBrand(){
+    this.currentBrand = undefined;
+    this.router.navigate(['cars/'], { queryParams: { brandId: undefined }, queryParamsHandling: 'merge', relativeTo: this.route});
+  }
 }

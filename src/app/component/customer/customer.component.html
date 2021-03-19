@@ -8,14 +8,14 @@
 <table *ngIf="dataLoaded==true" class="table">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Kullanıcı Id</th>
-      <th>Sirket Adı</th>
+      <th>Müşteri Numarası</th>
+      <th>Müşteri</th>
+      <th>Şirket</th>
     </tr>
   </thead>
   <tr *ngFor="let customer of customers">
     <td>{{customer.customerId}}</td>
-    <td>{{customer.userId}}</td>
+    <td>{{customer.firstName + " "+ customer.lastName}}</td>
     <td>{{customer.companyName}}</td>
   </tr>
 </table>

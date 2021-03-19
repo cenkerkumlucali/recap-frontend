@@ -1,25 +1,32 @@
-<h4>ARAÇ LİSTESİ</h4>
+<h4>ARABALAR</h4>
 <div *ngIf="dataLoaded==false" class="spinner-border" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
+
+<div class="mb-3">
+  <label for="filterText" class="form-label"></label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Araç ismi giriniz">
+</div>
+
+<div *ngIf="filterText" class="alert alert-primary">
+{{filterText}} aradınız.
+</div>
+<!-- <app-car-filter></app-car-filter> -->
 <div class="row" *ngIf="dataLoaded==true">
-  <div *ngFor="let car of cars" class="card" style="width: 20rem;">
+<div  routerLink="/cars/car-detail/{{car.carId}}"  *ngFor="let car of cars |carfilterPipe:filterText" class="card" style="width: 20rem;">
   <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" alt="{{car.description}} Image" width="auto" height="auto">
     <div  class="card-body">
-      <h5 class="card-title">{{car.description}}</h5>
+      <h5 class="card-title">{{car.brandName |uppercase}}</h5>
     </div >
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Marka: {{car.brandName}}</li>
       <li class="list-group-item">Renk: {{car.colorName}}</li>
       <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
-      <li class="list-group-item">Fiyat: {{car.dailyPrice}} Türk Lirası</li>
+      <li class="list-group-item">Fiyat: {{car.dailyPrice |currency}}</li> 
+      <li class="list-group-item">Açıklama: {{car.description}}</li>
     </ul>
     <div class="card-body">
-      <section style="float:left">
+      <section style="float:top">
         <button routerLink="/cars/detail/{{car.carId}}" type="button" class="btn btn-primary">Detaylar</button>
-      </section>
-      <section style="float: right">
-        <button type="button" class="btn btn-primary">Kirala</button>
       </section>
     </div>
   </div>

@@ -1,12 +1,50 @@
-<div *ngIf="dataLoaded == false" class="text-center">
+<div style="margin-top:36px" class="mb-3">
+  <input type="text" [(ngModel)]="filterColorText" class="form-control" id="filterColorText" 
+  placeholder="Renk giriniz">
+</div>
+<select [(ngModel)]="currentColor" class="form-select" (change)="setQueryParams(currentColor)" aria-label="Default select example">
+  <option [selected]="isAllColorSelected()" [ngValue]=undefined>Tüm renkler</option>
+  <option [selected]="isCurrentColor(color)" *ngFor="let color of colors | filterColorPipe:filterColorText; index as i" [ngValue]="color">{{color.colorName}}</option>
+</select>
+
+
+
+<!-- <div *ngIf="dataLoaded == false" class="text-center">
   <div class="spinner-border text-dark" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
 <ul *ngIf="dataLoaded == true" class="list-group">
-   
-<ul class="list-group">
-  <li [class]="getAllColorClass()" routerLink="/cars">Tüm Renkler</li>
-  <li (click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}"
-    *ngFor="let color of colors" [class]="getCurrentColorClass(color)">{{color.colorName}}</li>
-</ul>
+
+
+  <ul class="list-group">
+    <li [class]="getAllColorClass()" routerLink="/cars">Tüm Renkler</li>
+    <div class="mb-3">
+      <label for="filterColorText" class="form-label"></label>
+      <input
+        type="text"
+        [(ngModel)]="filterColorText"
+        class="form-control"
+        id="filterColorText"
+        placeholder="Renk giriniz"
+      />
+    </div>
+    <li
+      (click)="setCurrentColor(color)"
+      routerLink="/cars/color/{{ color.colorId }}"
+      *ngFor="let color of colors |filterColorPipe:filterColorText"
+      [class]="getCurrentColorClass(color)"
+    >
+      {{ color.colorName }}
+    </li>
+  </ul>
+</ul> -->
+
+<!-- <select class="form-select" aria-label="Default select example">
+  <option 
+  [ngClass]="getCurrentColorClass(color)"  (click)="setCurrentColor(color)"  routerLink="/cars/color/{{color.colorId}}"
+  *ngFor="let color of colors |filterColorPipe:filterColorText"  selected>{{color.colorName}}
+</option>
+</select>
+
+<button type="button" class="btn btn-primary">Filtrele</button> -->

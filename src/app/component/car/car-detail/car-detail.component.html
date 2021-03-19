@@ -7,8 +7,13 @@
     </div>
     <div class="carousel-inner">
       <div *ngFor="let car of cars" class="carousel-item active" data-bs-interval="10000">
-        <img src="{{imageBasePath}}{{car.imagePath}}" class="d-block w-100" alt="{{car.description}} Image">
+        <img src="{{imageBasePath}}{{car.imagePath}}" width="300" height="425" class="d-block w-100" alt="{{car.description}} Image">
+        
         <div class="carousel-caption d-none d-md-block">
+          <section style="float: right">
+
+            <button routerLink = "/rental/{{car.carId}}" type="button"style="width:150px"class="btn btn-primary">Kirala</button>
+          </section>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
@@ -37,10 +42,14 @@
   </div>
   <div>
     <ul *ngFor="let car of cars" class="list-group list-group-flush">
-      <li class="list-group-item">Marka: {{car.brandName}}</li>
+      <li class="list-group-item">Marka: {{car.brandName |uppercase}}</li>
       <li class="list-group-item">Renk: {{car.colorName}}</li>
       <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
-      <li class="list-group-item">Fiyat: {{car.dailyPrice}} Türk Lirası</li>
+      <li class="list-group-item">Fiyat: {{car.dailyPrice |currency}}</li>
     </ul>
+    <section style="float: right">
+
+  </section>
   </div>
+  
 </div>
