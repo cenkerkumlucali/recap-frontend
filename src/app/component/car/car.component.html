@@ -1,33 +1,82 @@
-<h4>ARABALAR</h4>
-<div *ngIf="dataLoaded==false" class="spinner-border" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <app-brand-category></app-brand-category>
+      <app-color></app-color>
+    </div>
+    <div class="col-md-9">
+      <h4 style="margin-left: 35%; margin-top: 14px; margin-bottom: -10px">
+        ARABALAR
+      </h4>
+      <div *ngIf="dataLoaded == false" class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
 
-<div class="mb-3">
-  <label for="filterText" class="form-label"></label>
-  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Araç ismi giriniz">
-</div>
+      <div style="width: 91%" class="mb-3">
+        <label for="filterText" class="form-label"></label>
+        <input
+          type="text"
+          [(ngModel)]="filterText"
+          class="form-control"
+          id="filterText"
+          placeholder="Araç ismi giriniz"
+        />
+      </div>
 
-<div *ngIf="filterText" class="alert alert-primary">
-{{filterText}} aradınız.
-</div>
-<!-- <app-car-filter></app-car-filter> -->
-<div class="row" *ngIf="dataLoaded==true">
-<div  routerLink="/cars/car-detail/{{car.carId}}"  *ngFor="let car of cars |carfilterPipe:filterText" class="card" style="width: 20rem;">
-  <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" alt="{{car.description}} Image" width="auto" height="auto">
-    <div  class="card-body">
-      <h5 class="card-title">{{car.brandName |uppercase}}</h5>
-    </div >
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Renk: {{car.colorName}}</li>
-      <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
-      <li class="list-group-item">Fiyat: {{car.dailyPrice |currency}}</li> 
-      <li class="list-group-item">Açıklama: {{car.description}}</li>
-    </ul>
-    <div class="card-body">
-      <section style="float:top">
-        <button routerLink="/cars/detail/{{car.carId}}" type="button" class="btn btn-primary">Detaylar</button>
-      </section>
+      <div *ngIf="filterText" class="alert alert-primary">
+        {{ filterText }} aradınız.
+      </div>
+      <div class="row" *ngIf="dataLoaded == true">
+        <div
+          routerLink="/cars/car-detail/{{ car.carId }}"
+          *ngFor="let car of cars | carfilterPipe: filterText"
+          class="card"
+          style="width: 23rem"
+        >
+          <img
+            src="{{ imageBasePath }}{{ car.imagePath }}"
+            class="card-img-top"
+            alt="{{ car.description }} Image"
+            width="100%"
+            height="100%"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ car.brandName | uppercase }}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Renk: {{ car.colorName }}</li>
+            <li class="list-group-item">Model Yılı: {{ car.modelYear }}</li>
+            <li class="list-group-item">
+              Fiyat: {{ car.dailyPrice | currency }}
+            </li>
+            <li class="list-group-item">Açıklama: {{ car.description }}</li>
+          </ul>
+          <div class="card-body">
+            <section style="float: top">
+              <button
+                routerLink="/cars/detail/{{ car.carId }}"
+                style="background-color: #4b4c4e"
+                type="button"
+                class="btn btn-primary"
+              >
+                Detaylar
+              </button>
+              <button
+                routerLink="/rental/{{ car.carId }}"
+                style="
+                  margin-left: 100px;
+                  width: 85px;
+                  background-color: #4b4c4e;
+                "
+                type="button"
+                class="btn btn-primary"
+              >
+                Kirala
+              </button>
+            </section>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

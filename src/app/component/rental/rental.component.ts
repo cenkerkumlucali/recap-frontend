@@ -7,6 +7,7 @@ import { RentalService } from 'src/app/services/rental.service';
 import { Car } from 'src/app/models/car';
 import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-rental',
@@ -20,6 +21,7 @@ export class RentalComponent implements OnInit {
   rentPrice:number = 0;
   rental:Rental;
   rentable:Boolean = false;
+  imageBasePath = environment.baseUrl;
   constructor(
     private rentalService:RentalService,
     private carService:CarService,
@@ -84,21 +86,4 @@ export class RentalComponent implements OnInit {
       this.toastrService.info("Bu tarihler arasında arabayı kiralayamazsınız","!")
     }
   }
-
-
-  // createRental(){
-  //   let MyRental:Rental = {
-  //     rentDate: this.rentDate,
-  //     returnDate: this.returnDate,
-  //     carId: this.car.carId,
-  //     customerId: parseInt(this.customerId.toString())
-  //   }
-  //   this.router.navigate(['/payment/', JSON.stringify(MyRental)]);
-  //   this.toastr.info("Ödeme sayfasına yönlendiriliyorsunuz...", "Ödeme İşlemleri");
-  //   /*
-  //   this.rentalService.rentalCar(MyRental).subscribe(response => {
-  //     this.toastr.success(response.message.toString(), "Harika...");
-  //   })
-  //   */
-  // }
 }

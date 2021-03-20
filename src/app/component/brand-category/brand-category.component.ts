@@ -39,7 +39,7 @@ export class BrandCategoryComponent implements OnInit {
   }
 
   setCurrentBrand() {
-    this.router.navigate(['cars/'], { queryParams: { brandId: this.currentBrand?.brandId }, queryParamsHandling: 'merge', relativeTo: this.route});
+    this.router.navigate([], { queryParams: { brandId: this.currentBrand?.brandId }, queryParamsHandling: 'merge', relativeTo: this.route});
   }
 
   isCurrentBrand(brand: Brand) {

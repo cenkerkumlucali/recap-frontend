@@ -1,55 +1,61 @@
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-  <div>
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div>
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div *ngFor="let car of cars" class="carousel-item active" data-bs-interval="10000">
+              <img src="{{imageBasePath}}{{car.imagePath}}" width="300" height="425" class="d-block w-100" alt="{{car.description}} Image">  
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="..." class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="..." class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      
     </div>
-    <div class="carousel-inner">
-      <div *ngFor="let car of cars" class="carousel-item active" data-bs-interval="10000">
-        <img src="{{imageBasePath}}{{car.imagePath}}" width="300" height="425" class="d-block w-100" alt="{{car.description}} Image">
-        
-        <div class="carousel-caption d-none d-md-block">
-          <section style="float: right">
-
-            <button routerLink = "/rental/{{car.carId}}" type="button"style="width:150px"class="btn btn-primary">Kirala</button>
-          </section>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="..." class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
+    <div class="col-md-4">
+      <div>
+        <ul *ngFor="let car of cars" class="list-group list-group-flush">
+          <li class="list-group-item">Marka: {{car.brandName |uppercase}}</li>
+          <li class="list-group-item">Renk: {{car.colorName}}</li>
+          <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
+          <li class="list-group-item">Fiyat: {{car.dailyPrice |currency}}</li>
+          <li class="list-group-item">Fiyat: {{car.description}}</li>
+        </ul>
+        <section style="float: right">
+          <div *ngFor="let car of cars" class="carousel-caption d-none d-md-block">
+        <button routerLink = "/rental/{{car.carId}}" type="button"style="width:150px;margin-left:81%;margin-bottom: 280px;background-color: #4b4c4e;" class="btn btn-primary">Kirala</button>
+          </div> 
+        </section>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    </div>
   </div>
-  <div>
-    <ul *ngFor="let car of cars" class="list-group list-group-flush">
-      <li class="list-group-item">Marka: {{car.brandName |uppercase}}</li>
-      <li class="list-group-item">Renk: {{car.colorName}}</li>
-      <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
-      <li class="list-group-item">Fiyat: {{car.dailyPrice |currency}}</li>
-    </ul>
-    <section style="float: right">
-
-  </section>
-  </div>
-  
 </div>
+
+

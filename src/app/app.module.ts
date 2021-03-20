@@ -45,7 +45,7 @@ import { ToastrModule } from 'ngx-toastr'
     FilterColorPipePipe,
     CreditCardPaymentComponent,
     CarFilterComponent,
-    CreditCardPaymentComponent
+    CreditCardPaymentComponent,
 
 
   ],
@@ -55,10 +55,10 @@ import { ToastrModule } from 'ngx-toastr'
     HttpClientModule,
     NgbModule,
     FormsModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),
-    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

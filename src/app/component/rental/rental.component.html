@@ -1,49 +1,82 @@
-<div class="card mb-3" style="max-width: 1024px; margin-top: 20px;">
+<div class="card mb-3" style="max-width: 1024px; margin-top: 20px">
   <div class="row g-0">
     <div class="col-md-5">
       <table *ngIf="car" class="table table-striped mt-2">
-          <tbody>
-            <tr>
-              <th scope="row">Marka</th>
-              <td>{{ car.brandName }}</td>
-            </tr>
-            <tr>
-            <tr>
-              <th scope="row">Renk</th>
-              <td>{{ car.colorName }}</td>
-            </tr>
-            <tr>
-              <th scope="row">Fiyat</th>
-              <td>
-                {{
-                  car.dailyPrice | currency: "TRY":"symbol-narrow":"1.2-2"
-                }}/Gunluk
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Model Yılı</th>
-              <td>{{ car.modelYear }}</td>
-            </tr>
-            <tr>
-              <th scope="row">Aciklama</th>
-              <td>{{ car.description }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <img
+          src="{{ imageBasePath }}{{ car.imagePath }}"
+          class="card-img-top"
+          alt="{{ car.description }} Image"
+          width="100"
+          height="200"
+        />
+
+        <div class="card-body">
+          <h5 class="card-title">{{ car.brandName | uppercase }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Renk: {{ car.colorName }}</li>
+          <li class="list-group-item">Model Yılı: {{ car.modelYear }}</li>
+          <li class="list-group-item">
+            Fiyat: {{ car.dailyPrice | currency }}
+          </li>
+          <li class="list-group-item">Açıklama: {{ car.description }}</li>
+        </ul>
+      </table>
     </div>
-    <div class="col-md-7" style="position: relative;">
+    <div class="col-md-7" style="position: relative">
       <div class="card-body">
-          <form class="list-group-item active">
-              <label>Başlangıç tarihi</label><label style="margin-left: 95px;">Bitiş tarihi</label>
-              <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                  <div class="btn-group me-5" role="group" aria-label="First group"><input type="date" (change)="calculatePrice()" [(ngModel)]="startDate" [ngModelOptions]="{standalone: true}"></div>
-                  <div class="btn-group me-5" role="group" aria-label="First group"><input type="date" (change)="calculatePrice()" [(ngModel)]="endDate" [ngModelOptions]="{standalone: true}"></div>
-              </div>
-              <br><br>
-              <div><p *ngIf="endDate && startDate">Toplam ücret: {{rentPrice | currency:"TRY":"symbol-narrow":"1.2-2"}}</p></div>
-          </form>
+        <form
+          class="list-group-item active"
+          style="background-color: #4b4c4e; border-color: #000000"
+        >
+          <label>Başlangıç tarihi</label
+          ><label style="margin-left: 95px">Bitiş tarihi</label>
+          <div
+            class="btn-toolbar"
+            role="toolbar"
+            aria-label="Toolbar with button groups"
+          >
+            <div class="btn-group me-5" role="group" aria-label="First group">
+              <input
+                type="date"
+                (change)="calculatePrice()"
+                [(ngModel)]="startDate"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+            <div class="btn-group me-5" role="group" aria-label="First group">
+              <input
+                type="date"
+                (change)="calculatePrice()"
+                [(ngModel)]="endDate"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+          <br /><br />
+          <div>
+            <p *ngIf="endDate && startDate">
+              Toplam ücret:
+              {{ rentPrice | currency: "TRY":"symbol-narrow":"1.2-2" }}
+            </p>
+          </div>
+        </form>
       </div>
-        <button *ngIf="endDate && startDate && rentPrice>0" (click)="addRental()" type="button" class="btn btn-success" style="position:absolute; bottom:20px; right:20px;">Kirala</button>
+      <button
+        *ngIf="endDate && startDate && rentPrice > 0"
+        (click)="addRental()"
+        type="button"
+        class="btn btn-success"
+        style="
+          position: absolute;
+          width: 100px;
+          bottom: 225px;
+          right: 20px;
+          background-color: #4b4c4e;
+        "
+      >
+        Kirala
+      </button>
     </div>
   </div>
 </div>
