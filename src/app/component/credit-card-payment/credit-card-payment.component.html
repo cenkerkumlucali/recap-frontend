@@ -7,7 +7,9 @@
     placeholder="Kart numarası" style="margin-top: 20px;">
     <input type="text" [(ngModel)]="cardCvv" class="form-control" id="cvvText" 
     placeholder="Cvv" style="margin-top: 20px;">
-    <button type="button" class="btn btn-success" style="position:absolute; bottom:20px; right:20px;background-color: #4b4c4e;" (click)="rentACar()">Kirala</button>
+    <input type="text" [(ngModel)]="expirationDate" class="form-control" id="expirationDate" 
+    placeholder="Son kullanma tarihi" style="margin-top: 20px;">
+    <button type="button" class="modal-footer" style="position:absolute; bottom:20px; right:20px;background-color: #4b4c4e;" (click)="rentACar()">Kirala</button>
     <p style="position:absolute; bottom:20px; left:20px;">{{rental.totalRentPrice | currency: "TRY":"symbol-narrow":"1.2-2"}}</p>
     <br><br>
     <p> </p>

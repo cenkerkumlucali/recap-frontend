@@ -16,6 +16,7 @@ export class CreditCardPaymentComponent implements OnInit {
   nameOnTheCard: string;
   cardNumber: string;
   cardCvv: string;
+  expirationDate:string;
   payment: Payment;
   cardExist: Boolean = false;
   constructor(
@@ -35,6 +36,7 @@ export class CreditCardPaymentComponent implements OnInit {
 
   async rentACar() {
     let payment: Payment = {
+      expirationDate : this.expirationDate,
       nameOnTheCard: this.nameOnTheCard,
       cardNumber: this.cardNumber,
       cardCvv: this.cardCvv,
