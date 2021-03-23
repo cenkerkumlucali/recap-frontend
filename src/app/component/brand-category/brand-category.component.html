@@ -1,16 +1,31 @@
-<div style="margin-top: 58px;" class="mb-3">
-  <input type="text" [(ngModel)]="filterBrandText" class="form-control" id="filterBrandText" 
-  placeholder="Marka giriniz">
+<div style="margin-top: 58px" class="mb-3">
+  <input
+    type="text"
+    [(ngModel)]="filterBrandText"
+    class="form-control"
+    id="filterBrandText"
+    placeholder="Marka giriniz"
+  />
 </div>
-<select class="form-select" [(ngModel)]="currentBrand" #brandSelection (change)="setQueryParams(currentBrand)" aria-label="Default select example">
-  <option [selected]="isAllBrandSelected()" [ngValue]=undefined>Tüm markalar</option>
-  
-  <option [selected]="isCurrentBrand(brand)" *ngFor="let brand of brands | filterBrandPipe:filterBrandText; index as i" [ngValue]="brand">{{brand.brandName}}</option>
+<select
+  class="form-select"
+  [(ngModel)]="currentBrand"
+  #brandSelection
+  (change)="setQueryParams(currentBrand)"
+  aria-label="Default select example"
+>
+  <option [selected]="isAllBrandSelected()" [ngValue]="undefined">
+    Tüm markalar
+  </option>
+
+  <option
+    [selected]="isCurrentBrand(brand)"
+    *ngFor="let brand of brands | filterBrandPipe: filterBrandText; index as i"
+    [ngValue]="brand"
+  >
+    {{ brand.brandName }}
+  </option>
 </select>
-
-
-
-
 
 <!-- <div *ngIf="dataLoaded == false" class="text-center">
   <div class="spinner-border text-dark" role="status">
@@ -48,6 +63,3 @@
 </select>
 </div>
 <button type="button" class="btn btn-primary">Filtrele</button> -->
-
-
- 

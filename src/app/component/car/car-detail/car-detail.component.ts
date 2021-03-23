@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Car } from 'src/app/models/car';
+import { CarDetail } from 'src/app/models/carDetail';
 import { CarService } from 'src/app/services/car.service';
 import { environment } from 'src/environments/environment';
 
@@ -11,9 +11,11 @@ import { environment } from 'src/environments/environment';
 })
 export class CarDetailComponent implements OnInit {
 
-  cars: Car[] = [];
+  cars: CarDetail[] = [];
+  carDto:CarDetail
   dataLoaded = false;
   imageBasePath = environment.baseUrl;
+  defaultImg="/images/default.jpg"
   constructor(private carService:CarService, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -28,6 +30,8 @@ export class CarDetailComponent implements OnInit {
   getCarDetail(carId:number) {
     this.carService.getCarDetailsByCarId(carId).subscribe((response) => {
       this.cars = response.data;
+      this.carDto = response.data[0]
+      console.log(this.carDto.carId)
       this.dataLoaded = true;
     });
   }

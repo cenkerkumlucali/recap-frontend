@@ -1,19 +1,7 @@
-
-<div class="alert alert-info" role="alert">
-    <h2>Markalar</h2> 
-   </div>
-   <div *ngIf="dataLoaded==false"  class="spinner-border text-success" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-<table *ngIf="dataLoaded==true" class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Marka</th>
-        </tr>
-    </thead>
-    <tr *ngFor='let brand of brands'>
-        <td>{{brand.brandId}}</td>
-        <td>{{brand.brandName}}</td>
-    </tr>
-</table>
+<div *ngFor="let brand of brands">
+<div class="card-body">
+    <ul class="list-group list-group-flush">
+      <h5 class="card-title">{{ brand.brandId}}</h5>
+    <li class="list-group-item">Model: {{ brand.brandName }}</li>
+  </ul>
+</div>

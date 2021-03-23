@@ -34,7 +34,7 @@
           style="width: 23rem"
         >
           <img
-            src="{{ imageBasePath }}{{ car.imagePath }}"
+          [src]="car.images.length !== 0 ? imageBasePath+ car.images[0] : imageBasePath + defaultImg"
             class="card-img-top"
             alt="{{ car.description }} Image"
             width="100%"
@@ -62,15 +62,19 @@
               </button>
               <button
                 routerLink="/rental/{{ car.carId }}"
-                style="
-                  margin-left: 100px;
-                  width: 85px;
-                "
+
                 type="button"
                 class="btn btn-outline-dark"
               >
                 Kirala
               </button>
+              <!-- <button
+                routerLink="cars/update/{{ car.carId }}"
+                type="button"
+                class="btn btn-outline-dark"
+              >
+                Düzenle
+              </button> -->
             </section>
           </div>
         </div>

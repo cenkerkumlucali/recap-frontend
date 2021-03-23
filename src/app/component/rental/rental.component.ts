@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from 'src/app/models/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 import { RentalService } from 'src/app/services/rental.service';
-import { Car } from 'src/app/models/car';
+import { CarDetail } from 'src/app/models/carDetail';
 import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';
 import { environment } from 'src/environments/environment';
@@ -15,13 +15,14 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./rental.component.css']
 })
 export class RentalComponent implements OnInit {
-  car:Car;
+  car:CarDetail;
   startDate:Date;
   endDate:Date;
   rentPrice:number = 0;
   rental:Rental;
   rentable:Boolean = false;
   imageBasePath = environment.baseUrl;
+  defaultImg="/images/default.jpg"
   constructor(
     private rentalService:RentalService,
     private carService:CarService,
@@ -78,12 +79,12 @@ export class RentalComponent implements OnInit {
         this.setRentable()
       }else{
         this.rentPrice = 0
-        this.toastrService.info("Bu tarihler arasında arabayı kiralayamazsınız","!")
+        this.toastrService.info("Bu tarihler arasında arabayı kiralayamazsınız")
       }
     }
     else{
       this.rentPrice = 0
-      this.toastrService.info("Bu tarihler arasında arabayı kiralayamazsınız","!")
+      this.toastrService.info("Bu tarihler arasında arabayı kiralayamazsınız")
     }
   }
 }

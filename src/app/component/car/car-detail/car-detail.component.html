@@ -9,8 +9,8 @@
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
           <div class="carousel-inner">
-            <div *ngFor="let car of cars" class="carousel-item active" data-bs-interval="10000">
-              <img src="{{imageBasePath}}{{car.imagePath}}" width="300" height="425" class="d-block w-100" alt="{{car.description}} Image">  
+            <div *ngFor="let car of carDto.images" class="carousel-item active" data-bs-interval="10000">
+              <img [src]="carDto.images.length !== 0 ? imageBasePath+ car: imageBasePath + defaultImg" width="300" height="425" class="d-block w-100" alt="{{carDto.description}} Image">  
               </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
@@ -41,19 +41,21 @@
     </div>
     <div class="col-md-4">
       <div>
-        <ul *ngFor="let car of cars" class="list-group list-group-flush">
-          <li class="list-group-item">Marka: {{car.brandName |uppercase}}</li>
-          <li class="list-group-item">Renk: {{car.colorName}}</li>
-          <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
-          <li class="list-group-item">Fiyat: {{car.dailyPrice |currency}}</li>
-          <li class="list-group-item">Fiyat: {{car.description}}</li>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Marka: {{carDto.brandName |uppercase}}</li>
+          <li class="list-group-item">Renk: {{carDto.colorName}}</li>
+          <li class="list-group-item">Model Yılı: {{carDto.modelYear}}</li>
+          <li class="list-group-item">Fiyat: {{carDto.dailyPrice |currency}}</li>
+          <li class="list-group-item">Açıklama: {{carDto.description}}</li>
         </ul>
         <section style="float: right">
-          <div *ngFor="let car of cars" class="carousel-caption d-none d-md-block">
-        <button routerLink = "/rental/{{car.carId}}" type="button"style="width:150px;margin-left:81%;margin-bottom: 280px;" class="btn btn-outline-dark">Kirala</button>
+          <div *ngFor="let car of carDto.images" class="carousel-caption d-none d-md-block">
+            <button routerLink = "/rental/{{carDto.carId}}" type="button"style="width: 150px; margin-left: 64%;margin-top: -550px;" 
+            class="btn btn-outline-dark">Kirala</button>
           </div> 
+          <app-car-update [carForUpdate]="carDto"></app-car-update>
         </section>
-    </div>
+      </div>
     </div>
   </div>
 </div>

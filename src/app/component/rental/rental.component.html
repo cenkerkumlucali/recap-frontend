@@ -3,7 +3,7 @@
     <div class="col-md-5">
       <table *ngIf="car" class="table table-striped mt-2">
         <img
-          src="{{ imageBasePath }}{{ car.imagePath }}"
+        [src]="car.images.length !== 0 ? imageBasePath+ car.images[0] : imageBasePath + defaultImg"
           class="card-img-top"
           alt="{{ car.description }} Image"
           width="100"
