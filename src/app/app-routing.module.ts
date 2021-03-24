@@ -11,6 +11,7 @@ import { BrandAddComponent } from './component/brand-add/brand-add.component';
 import { ColorAddComponent } from './component/color-add/color-add.component';
 import { CarUpdateComponent } from './component/car-update/car-update.component';
 import { BrandComponent } from './component/brand/brand.component';
+import { BrandUpdateComponent } from './component/brand-update/brand-update.component';
 
 
 const routes: Routes = [
@@ -18,12 +19,14 @@ const routes: Routes = [
   {path:"",component:CarComponent},
 
   {path:"cars",component:CarComponent},
+  
   {path:"brands",component:BrandComponent},
 
   {path:"cars/add", component:CarAddComponent},
 
   {path:"cars/update/:carId", component:CarUpdateComponent},
-  {path:"brands/update/:brandId", component:CarUpdateComponent},
+
+  {path:"brands/update/:brandId", component:BrandUpdateComponent},
 
   {path:"brands/add", component:BrandAddComponent},
 

@@ -1,7 +1,27 @@
+<table class="table">
+  <thead>
+      <tr>
+          <th>Numara</th>
+          <th>Marka Adı</th>
+<th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let brand of brands">
+      <td>{{brand.brandId}}</td>
+      <td>{{brand.brandName | uppercase}}</td>
+      <td><button class="btn btn-outline-dark" routerLink="update/{{brand.brandId}}">Güncelle </button></td>
+  </tr>
+  </tbody>
+  
+
+<!-- 
 <div *ngFor="let brand of brands">
-<div class="card-body">
-    <ul class="list-group list-group-flush">
-      <h5 class="card-title">{{ brand.brandId}}</h5>
-    <li class="list-group-item">Model: {{ brand.brandName }}</li>
-  </ul>
-</div>
+
+<div class="card border-dark mb-3 " style="max-width: 18rem;">
+  <div class="card-header">Marka</div>
+  <div class="card-body text-dark ">
+    <h5 class="card-title">{{brand.brandId}}</h5>
+    <p class="card-text">{{brand.brandName}}</p>
+  </div>
+</div> -->

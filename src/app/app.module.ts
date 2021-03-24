@@ -25,7 +25,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { CarAddComponent } from './component/car-add/car-add.component';
 import { BrandAddComponent } from './component/brand-add/brand-add.component';
 import { ColorAddComponent } from './component/color-add/color-add.component';
-import { CarUpdateComponent } from './component/car-update/car-update.component'
+import { CarUpdateComponent } from './component/car-update/car-update.component';
+import { BrandUpdateComponent } from './component/brand-update/brand-update.component'
 
 
 
@@ -54,6 +55,7 @@ import { CarUpdateComponent } from './component/car-update/car-update.component'
     BrandAddComponent,
     ColorAddComponent,
     CarUpdateComponent,
+    BrandUpdateComponent,
 
 
   ],
