@@ -14,6 +14,9 @@ import { BrandComponent } from './component/brand/brand.component';
 import { BrandUpdateComponent } from './component/brand-update/brand-update.component';
 import { ColorListComponent } from './component/color-list/color-list.component';
 import { ColorUpdateComponent } from './component/color-update/color-update.component';
+import { LoginComponent } from './component/login/login.component';
+import { LoginGuard } from './guard/login.guard';
+import { RegisterComponent } from './component/register/register.component';
 
 
 const routes: Routes = [
@@ -26,18 +29,22 @@ const routes: Routes = [
 
   {path:"colors",component:ColorListComponent},
 
-  {path:"cars/add", component:CarAddComponent},
+  {path:"login",component:LoginComponent},
 
-  {path:"cars/update/:carId", component:CarUpdateComponent},
+  {path:"register",component:RegisterComponent},
 
-  {path:"brands/update/:brandId", component:BrandUpdateComponent},
+  {path:"cars/add", component:CarAddComponent,canActivate:[LoginGuard]},
 
-  {path:"colors/update/:colorId", component:ColorUpdateComponent},
+  {path:"cars/update/:carId", component:CarUpdateComponent,canActivate:[LoginGuard]},
+
+  {path:"brands/update/:brandId", component:BrandUpdateComponent,canActivate:[LoginGuard]},
+
+  {path:"colors/update/:colorId", component:ColorUpdateComponent,canActivate:[LoginGuard]},
 
 
-  {path:"brands/add", component:BrandAddComponent},
+  {path:"brands/add", component:BrandAddComponent,canActivate:[LoginGuard]},
 
-  {path:"colors/add", component:ColorAddComponent},
+  {path:"colors/add", component:ColorAddComponent,canActivate:[LoginGuard]},
 
   {path:"cars/color/:colorId",component:CarComponent},
 

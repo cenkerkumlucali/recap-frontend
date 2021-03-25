@@ -1,7 +1,7 @@
 
 <!-- Button trigger modal -->
 
-<button  type="button" class=" btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button style="margin-top: 22px;width: 120px;" routerLink="cars/update/{{carForUpdate.carId}}" type="button" class=" btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Güncelle
 </button>
 
@@ -54,8 +54,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-        <button (click)="update()" type="button" class="btn btn-primary"  data-bs-dismiss="modal">Değişiklikleri kaydet</button>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Kapat</button>
+        <button (click)="update()" type="button" class="btn btn-warning"  data-bs-dismiss="modal">Değişiklikleri kaydet</button>
       </div>
     </div>
   </div>

@@ -17,7 +17,6 @@ export class PaymentService {
 
   isCardExist(payment:Payment):Observable<ResponseModel>{
     let newPath = this.apiUrl + "fakecards/iscardexist"
-    console.log("pepepe")
     return this.httpClient.post<ResponseModel>(newPath,payment);
   }
 

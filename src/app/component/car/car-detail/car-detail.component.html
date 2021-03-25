@@ -50,10 +50,10 @@
         </ul>
         <section style="float: right">
           <div *ngFor="let car of carDto.images" class="carousel-caption d-none d-md-block">
-            <button routerLink = "/rental/{{carDto.carId}}" type="button"style="width: 150px; margin-left: 64%;margin-top: -550px;" 
+            <button routerLink = "/rental/{{carDto.carId}}" type="button"style="width: 120px; margin-left: 64%;margin-top: -521px;" 
             class="btn btn-outline-dark">Kirala</button>
           </div> 
-          <app-car-update [carForUpdate]="carDto"></app-car-update>
+          <app-car-update  [carForUpdate]="carDto"></app-car-update>
         </section>
       </div>
     </div>

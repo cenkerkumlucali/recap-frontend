@@ -26,6 +26,9 @@ add(brand:Brand):Observable<ResponseModel>{
 update(brand:Brand):Observable<ResponseModel>{
   return this.httpClient.post<ResponseModel>(this.apiUrl+"brands/update",brand)
 }
+delete(brand:Brand):Observable<ResponseModel>{
+  return this.httpClient.post<ResponseModel>(this.apiUrl +"brands/delete",brand)
+}
 setCurrentBrand(brand: Brand) {
   this.currentCar = brand;
 }

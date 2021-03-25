@@ -24,7 +24,7 @@ getColors(){
 }
 deleteColor(color:Color){
   this.colorService.delete(color).subscribe((response)=>{
-    this.toastrService.error("The color is deleted.")
+    this.toastrService.error("Renk silindi")
     setTimeout(()=>{window.location.reload},1500)
   })
 }

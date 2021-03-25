@@ -1,102 +1,77 @@
+<!-- <div class="b-example-divider"></div>
+
+<header class="p-3 bg-dark text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a routerLink="" class="nav-link px-2 text-white">Ana Sayfa</a></li>
+        <li><a routerLink="cars" class="nav-link px-2 text-white">Araçlar</a></li>
+        <li><a routerLink="brands" class="nav-link px-2 text-white">Markalar</a></li>
+        <li><a routerLink="colors" class="nav-link px-2 text-white">Renkler</a></li>
+      </ul>
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control form-control-dark" placeholder="Search...">
+      </form>
+
+      <div class="text-end">
+        <button routerLink="login" type="button" class="btn btn-outline-light me-2">Giriş yap</button>
+        <button routerLink="register" type="button" class="btn btn-warning">Kayıt ol</button>
+      </div>
+      <div class="dropdown text-end">
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+        </a>
+        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item">New project...</a></li>
+          <li><a class="dropdown-item" >Settings</a></li>
+          <li><a class="dropdown-item" >Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" >Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+</header> -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">ReCap</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Ana Sayfa</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link active" routerLink="cars/add">Araç ekle</a>
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" routerLink="brands/add">Marka ekle</a>
+          <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" routerLink="colors/add">Renk ekle</a>
-        </li> -->
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Araçlar
-          </a>
-          
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="cars">Araçlar</a></li>
-            <li><a class="dropdown-item" routerLink="cars/add">Araç ekle</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Markalar
-          </a>
-          
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="brands">Markalar</a></li>
-            <li><a class="dropdown-item" routerLink="brands/add">Marka ekle</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Renkler
-          </a>
-          
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="colors">Renkler</a></li>
-            <li><a class="dropdown-item" routerLink="colors/add">Renk ekle</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link disabled"
-            href="#"
-            tabindex="-1"
-            aria-disabled="true"
-            >Disabled</a
-          >
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Aramak istediğiniz kelimeyi yazınız."
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">Ara</button>
-      </form>
+      <div class="text-end" *ngIf="!authService.loggedIn();">
+        <button routerLink="login" type="button" class="btn btn-danger">Giriş yap</button>
+        <button routerLink="register" type="button" class="btn btn-warning">Kayıt ol</button>
+      </div>
+      <div class="dropdown text-end" *ngIf="authService.loggedIn();">
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+        </a>
+        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" >Profile</a></li>
+          <li><a class="dropdown-item" >Settings</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <a (click)="logout()" class="dropdown-item" >Sign out</a>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

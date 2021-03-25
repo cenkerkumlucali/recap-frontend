@@ -1,20 +1,32 @@
-<table class="table">
-  <thead>
-      <tr>
-          <th>Numara</th>
-          <th>Marka Adı</th>
-<th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr *ngFor="let brand of brands">
-      <td>{{brand.brandId}}</td>
-      <td>{{brand.brandName | uppercase}}</td>
-      <td><button  class="btn btn-warning" style="border-radius: 50px;"routerLink="update/{{brand.brandId}}">Güncelle </button></td>
-  </tr>
-  </tbody>
-  
+<div class="row">
+  <div class="col-md-12" style="text-align:right">
 
+    <button routerLink="/colors/add" class="btn btn-success" style="border-radius: 50px; width: 150px;">Add Color</button>
+
+  </div>
+  <div class="col-md-12">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Marka Numarası</th>
+          <th scope="col">Marka Adı</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let brand of brands">
+          <td>{{brand.brandId}}</td>
+          <td>{{brand.brandName}}</td>
+          <td><button routerLink="/brands/update/{{brand.brandId}}" class="btn btn-warning" style="border-radius: 50px;">Güncelle</button></td>
+          <td><button (click)="deleteBrand(brand)" class="btn btn-danger" style="border-radius: 50px;">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
 <!-- 
 <div *ngFor="let brand of brands">
 

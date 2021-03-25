@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { CarComponent } from './component/car/car.component';
 import { BrandComponent } from './component/brand/brand.component';
 import { NaviComponent } from './component/navi/navi.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { RentalComponent } from './component/rental/rental.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { BrandCategoryComponent } from './component/brand-category/brand-category.component';
@@ -28,11 +28,11 @@ import { ColorAddComponent } from './component/color-add/color-add.component';
 import { CarUpdateComponent } from './component/car-update/car-update.component';
 import { BrandUpdateComponent } from './component/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './component/color-update/color-update.component';
-import { ColorListComponent } from './component/color-list/color-list.component'
-
-
-
-
+import { ColorListComponent } from './component/color-list/color-list.component';
+import { LoginComponent } from './component/login/login.component'
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './component/register/register.component';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -60,7 +60,9 @@ import { ColorListComponent } from './component/color-list/color-list.component'
     BrandUpdateComponent,
     ColorUpdateComponent,
     ColorListComponent,
-
+    LoginComponent,
+    RegisterComponent,
+    
 
   ],
   imports: [
@@ -71,11 +73,14 @@ import { ColorListComponent } from './component/color-list/color-list.component'
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

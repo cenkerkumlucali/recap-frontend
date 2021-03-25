@@ -35,7 +35,7 @@ export class CarUpdateComponent implements OnInit {
     this.getBrands()
     this.getColors()
   }
-
+  
   createCarUpdateForm() { 
     this.carUpdateForm = this.formBuilder.group({
       brandId: [this.carForUpdate?this.carForUpdate.brandId:'', Validators.required],
@@ -55,8 +55,8 @@ export class CarUpdateComponent implements OnInit {
       console.log(responseError);
       this.toastrService.error(responseError.error.message);
     });
-  }
-
+  } 
+ 
   getCurrentCar() {
     return this.carService.getCurrentCar();
   }
