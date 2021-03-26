@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h5 class="card-title">Üyelik Bilgileriniz</h5></div>
+        <div class="card-body">
+  
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Üyelik Durumu:</label>
+            <div class="col-sm-10">
+              <label class="col-sm-2 col-form-label"><b>{{this.status}}</b></label>
+            </div>
+          </div>
+  
+          <form [formGroup]="profileForm" >
+            <input type="hidden" id="id" formControlName="id"  [ngModel]="user.id" class="form-control" />
+  
+            <div class="mb-3 row">
+              <label for="firstName" class="col-sm-2 col-form-label">Adınız</label>
+              <div class="col-sm-10">
+                <input type="text " id="firstName" formControlName="firstName"  [ngModel]="user.firstName" class="form-control"
+                       placeholder="Adınız"/>
+              </div>
+            </div>
+  
+            <div class="mb-3 row">
+              <label for="lastName" class="col-sm-2 col-form-label">Soyadınız</label>
+              <div class="col-sm-10">
+                <input type="text" id="lastName" formControlName="lastName"  [ngModel]="user.lastName"  class="form-control"
+                       placeholder="Soyadınız"/>
+              </div>
+            </div>
+  
+            <div class="mb-3 row">
+              <label for="email" class="col-sm-2 col-form-label">E-Posta</label>
+              <div class="col-sm-10">
+                <input type="text" id="email" formControlName="email" class="form-control" [ngModel]="user.email"
+                       placeholder="E-Posta Adresiniz"/>
+              </div>
+            </div>
+  
+            <div class="mb-3 row">
+                <label for="password"  class="col-sm-2 col-form-label">Şifreniz</label>
+                <div class="col-sm-10">
+                  <input type="password" id="password"  formControlName="password" class="form-control"
+                         placeholder="Şifreniz"/>
+              </div>
+            </div>
+          </form>
+        </div>
+  
+        <div class="card-footer">
+          <button class="btn btn-outline-primary" (click)="updateProfile()" >Güncelle</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

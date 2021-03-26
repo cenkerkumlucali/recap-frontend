@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -32,7 +32,12 @@ import { ColorListComponent } from './component/color-list/color-list.component'
 import { LoginComponent } from './component/login/login.component'
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './component/register/register.component';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { JwtModule } from '@auth0/angular-jwt';
+import { LocalStorageService } from './services/local-storage.service';
+import { AuthService } from './services/auth.service';
+import { LoginGuard } from './guard/login.guard';
+import { ProfilComponent } from './component/profil/profil.component';
+import { ProfilUpdateComponent } from './component/profil/profil-update/profil-update.component';
 
 
 @NgModule({
@@ -62,6 +67,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     ColorListComponent,
     LoginComponent,
     RegisterComponent,
+    ProfilComponent,
+    ProfilUpdateComponent,
     
 
   ],
@@ -73,14 +80,16 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    JwtModule,
     
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),
   ],
-  providers: [
+  providers: [LocalStorageService,AuthService, LocalStorageService, LoginGuard,
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

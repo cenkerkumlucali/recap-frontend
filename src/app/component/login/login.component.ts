@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder,FormControl,Validators} from '@angular/forms'
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { ToastrService } from 'ngx-toastr';
+import { LoginModel } from 'src/app/models/loginModel';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -11,38 +14,35 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-loginForm:FormGroup
-decodedToken:any;
+  loginForm:FormGroup
 
-  constructor(private formBuilder:FormBuilder,
-              private authService:AuthService,
-              private toastrService:ToastrService,
-              private router:Router,
-             ) { }
+  constructor(private authService:AuthService,private toastrService:ToastrService,private formBuilder:FormBuilder,private localStorageService:LocalStorageService,private router:Router) { }
 
   ngOnInit(): void {
-    this.createLoginForm()
+    this.createLoginForm();
   }
 
   createLoginForm(){
-    this.loginForm=this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       email:["",Validators.required],
-      password:["",Validators.required] 
-      
+      password:["",Validators.required]
     })
   }
 
   login(){
     if(this.loginForm.valid){
-      console.log(this.loginForm.value)
-      let loginModel = Object.assign({},this.loginForm.value)
+      let loginModel = Object.assign({},this.loginForm.value);
       this.authService.login(loginModel).subscribe(response=>{
-        this.toastrService.info(response.message)
-        localStorage.setItem("token",response.data.token)
-        this.router.navigate(['']);
-      },errorResponse=>{
-        this.toastrService.error(errorResponse.error)
+        this.toastrService.success(response.message)
+        this.localStorageService.set('token',response.data.token)
+        this.localStorageService.set('email',this.loginForm.value.email);
+        this.router.navigate(["/"]).then(r => window.location.reload())
+
+      },responseError=>{
+        this.toastrService.error(responseError.error)
       })
+    }else{
+      this.toastrService.error("Lütfen Boş Bırakmayınız")
     }
   }
 

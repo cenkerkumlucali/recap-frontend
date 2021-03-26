@@ -42,7 +42,15 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -54,23 +62,43 @@
           <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a
+            class="nav-link disabled"
+            href="#"
+            tabindex="-1"
+            aria-disabled="true"
+            >Disabled</a
+          >
         </li>
       </ul>
-      <div class="text-end" *ngIf="!authService.loggedIn();">
-        <button routerLink="login" type="button" class="btn btn-danger">Giriş yap</button>
-        <button routerLink="register" type="button" class="btn btn-warning">Kayıt ol</button>
+      <div class="text-end" *ngIf="checkToLogin()==false">
+        <button routerLink="login" type="button" class="btn btn-danger">
+          Giriş yap
+        </button>
+        <button routerLink="register" type="button" class="btn btn-warning">
+          Kayıt ol
+        </button>
       </div>
-      <div class="dropdown text-end" *ngIf="authService.loggedIn();">
-        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+      <div class="dropdown text-end" *ngIf="checkToEmail()==true">
+        <a
+         
+          class="d-block link-dark text-decoration-none dropdown-toggle"
+          id="dropdownUser1"
+          data-bs-toggle="dropdown"
+          aria-expanded="true"
+           type="button"
+        >
+        
+        {{this.user.firstName}} {{this.user.lastName}}
+        
         </a>
-        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" >Profile</a></li>
-          <li><a class="dropdown-item" >Settings</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <a (click)="logout()" class="dropdown-item" >Sign out</a>
-        </ul>
+        
+        <div class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+          <li><a routerLink="/profil" class="dropdown-item">Profil düzenle</a></li>
+          <li><a class="dropdown-item disabled">Ayarlar</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <a (click)="logOut()" class="dropdown-item">Çıkış yap</a>
+        </div>
       </div>
     </div>
   </div>
