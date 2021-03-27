@@ -2,6 +2,13 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { CarouselModule } from 'primeng/carousel';
+import { DatePipe } from '@angular/common';
+import { MenuModule } from 'primeng/menu';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { DialogService } from 'primeng/dynamicdialog';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,12 +39,16 @@ import { ColorListComponent } from './component/color-list/color-list.component'
 import { LoginComponent } from './component/login/login.component'
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './component/register/register.component';
-import { JwtModule } from '@auth0/angular-jwt';
 import { LocalStorageService } from './services/local-storage.service';
 import { AuthService } from './services/auth.service';
 import { LoginGuard } from './guard/login.guard';
 import { ProfilComponent } from './component/profil/profil.component';
 import { ProfilUpdateComponent } from './component/profil/profil-update/profil-update.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { GecoDialogModule } from 'angular-dynamic-dialog';
+import {AccordionModule} from 'primeng/accordion';
+
+
 
 
 @NgModule({
@@ -81,12 +92,20 @@ import { ProfilUpdateComponent } from './component/profil/profil-update/profil-u
     BrowserAnimationsModule,
     ReactiveFormsModule,
     JwtModule,
+    GecoDialogModule,
+    AccordionModule,
+    CarouselModule,
+    MenuModule,
     
+    DynamicDialogModule,
+  
+
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),
   ],
-  providers: [LocalStorageService,AuthService, LocalStorageService, LoginGuard,
+  providers: [LocalStorageService,AuthService,DatePipe ,LocalStorageService, LoginGuard,
+    DialogService,
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
   ],
   bootstrap: [AppComponent],

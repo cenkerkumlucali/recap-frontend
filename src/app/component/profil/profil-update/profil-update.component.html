@@ -1,21 +1,16 @@
 <div class="container">
-    <div class="col-md-12">
+  <div class="row">
+    <div class="col-md-6">
       <div class="card">
         <div class="card-header"><h5 class="card-title">Üyelik Bilgileriniz</h5></div>
         <div class="card-body">
   
-          <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label">Üyelik Durumu:</label>
-            <div class="col-sm-10">
-              <label class="col-sm-2 col-form-label"><b>{{this.status}}</b></label>
-            </div>
-          </div>
   
           <form [formGroup]="profileForm" >
             <input type="hidden" id="id" formControlName="id"  [ngModel]="user.id" class="form-control" />
   
             <div class="mb-3 row">
-              <label for="firstName" class="col-sm-2 col-form-label">Adınız</label>
+              <label for="firstName" class="col-sm-2 col-form-label">Ad</label>
               <div class="col-sm-10">
                 <input type="text " id="firstName" formControlName="firstName"  [ngModel]="user.firstName" class="form-control"
                        placeholder="Adınız"/>
@@ -23,7 +18,7 @@
             </div>
   
             <div class="mb-3 row">
-              <label for="lastName" class="col-sm-2 col-form-label">Soyadınız</label>
+              <label for="lastName" class="col-sm-2 col-form-label">Soyad</label>
               <div class="col-sm-10">
                 <input type="text" id="lastName" formControlName="lastName"  [ngModel]="user.lastName"  class="form-control"
                        placeholder="Soyadınız"/>
@@ -45,13 +40,63 @@
                          placeholder="Şifreniz"/>
               </div>
             </div>
+            <div class="card-footer">
+              <button class="btn btn-outline-primary" (click)="updateProfile()" >Güncelle</button>
+            </div>
           </form>
         </div>
-  
-        <div class="card-footer">
-          <button class="btn btn-outline-primary" (click)="updateProfile()" >Güncelle</button>
-        </div>
-  
+        
       </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+      <div class="card-header"><h5 class="card-title">Şirket Bilgileriniz</h5></div>
+      <div >
+        <p-card>
+          <div class="row justify-content-center">
+            <form [formGroup]="customerForm">
+              <div class="p-field p-md-2 p-grid" style="margin-top: 5px;">
+                <label for="companyName"  class="col-sm-3 col-form-label"> Şirket adınız</label>
+                <span class="p-float-label p-col-fixed">
+                  <div class="mb-3 row">
+                    <div class="col-sm-10">
+                    <input type="text" id="companyName"  formControlName="companyName" class="form-control"
+                    placeholder="Şirket Adınız"/>
+                  </div> 
+                </div>                             
+                </span>
+              </div>
+              
+              <div class="card-footer">
+                <button class="btn btn-outline-primary" (click)="updateCustomer()" >Güncelle</button>
+              </div>
+              
+              <!-- <div class="p-field p-md-2 p-grid" style="margin-top: 5px;">
+                <span class="p-float-label">
+                  <textarea formControlName="address" [rows]="4"  ></textarea>
+                  <label for="input-address">Adres</label>
+                </span>
+              </div> -->
+              
+            </form>
+            <div *ngIf="customer">
+              <p-card>
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center">
+                        <span class="form-control">
+                          <label for="input-tel">Findeks Puanı</label>
+                            <input type="text" style="width:95%" disabled [(ngModel)]="customer.findeksScore" id="disabled-findeks" pInputText>
+                            
+                        </span>
+                    </div>
+                </div>
+              </p-card>
+            </div>
+            
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 export interface Customer{
-    customerId:Number
+    userId:string
     companyName:String
     firstName:String
     lastName:String
+    findeksScore:number
 }

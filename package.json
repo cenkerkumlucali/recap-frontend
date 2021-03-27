@@ -24,10 +24,13 @@
     "@material/select": "^10.0.0",
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
     "@popperjs/core": "^2.9.1",
+    "angular-dynamic-dialog": "^1.0.7",
     "bootstrap": "^5.0.0-beta3",
     "jquery": "^3.6.0",
     "ngx-toastr": "^13.2.1",
     "popper.js": "^1.16.1",
+    "primeicons": "^4.1.0",
+    "primeng": "^11.3.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
