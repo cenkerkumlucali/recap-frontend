@@ -18,7 +18,7 @@ apiUrl='https://localhost:44333/api/'
 constructor(private httpClient: HttpClient) { }
 
 getByCarId(carId:number):Observable<SingleResponseModel<Car>>{
-  let newPath = this.apiUrl +"cars/getbyid"+carId
+  let newPath = this.apiUrl +"cars/getbyid?carId="+carId
   return this.httpClient.get<SingleResponseModel<Car>>(newPath)
 }
 

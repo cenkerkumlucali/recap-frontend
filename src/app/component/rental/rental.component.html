@@ -1,79 +1,25 @@
-<div class="card mb-3" style="max-width: 1024px; margin-top: 20px">
-  <div class="row g-0">
-    <div class="col-md-5">
-      <table *ngIf="car" class="table table-striped mt-2">
-        <img
-        [src]="car.images.length !== 0 ? imageBasePath+ car.images[0] : imageBasePath + defaultImg"
-          class="card-img-top"
-          alt="{{ car.description }} Image"
-          width="100"
-          height="200"
-        />
-
-        <div class="card-body">
-          <h5 class="card-title">{{ car.brandName | uppercase }}</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Renk: {{ car.colorName }}</li>
-          <li class="list-group-item">Model Yılı: {{ car.modelYear }}</li>
-          <li class="list-group-item">
-            Fiyat: {{ car.dailyPrice | currency }}
-          </li>
-          <li class="list-group-item">Açıklama: {{ car.description }}</li>
-        </ul>
-      </table>
-    </div>
-    <div class="col-md-7" style="position: relative">
-      <div class="card-body">
-        <form
-          class="list-group-item active"
-          style="background-color: #4b4c4e; border-color: #000000"
-        >
-          <label>Başlangıç tarihi</label
-          ><label style="margin-left: 95px">Bitiş tarihi</label>
-          <div
-            class="btn-toolbar"
-            role="toolbar"
-            aria-label="Toolbar with button groups"
-          >
-            <div class="btn-group me-5" role="group" aria-label="First group">
-              <input
-                type="date"
-                (change)="calculatePrice()"
-                [(ngModel)]="startDate"
-                [ngModelOptions]="{ standalone: true }"
-              />
-            </div>
-            <div class="btn-group me-5" role="group" aria-label="First group">
-              <input
-                type="date"
-                (change)="calculatePrice()"
-                [(ngModel)]="endDate"
-                [ngModelOptions]="{ standalone: true }"
-              />
-            </div>
+<div *ngIf="car" class="content d-flex justify-content-center">
+  <div class="row justify-content-md-center">
+      <div class="col-md-12">
+          <div class="p-fluid p-formgrid p-grid">
+              <form>
+                  <div class="mb-3">
+                      <label for="daily-price" class="form-label">Günlük Ücret:</label>
+                      <input [value]="car.dailyPrice | currency" disabled="disabled" type="text" class="form-control" id="daily-price" >
+                  </div>
+                  <div class="mb-3" style="width: 12rem;">
+                      <label for="rent-date" class="form-label">Başlangıç:</label>
+                      <input  min="{{minDate}}" (change)="controlEndDate()" [(ngModel)]="startDate" name="startDate" type="date" class="form-control" id="rent-start-date" placeholder="Bir gün seçiniz.">
+                  </div>
+                  <div class="mb-3" style="width: 12rem;">
+                      <label for="return-date" class="form-label">Bitiş:</label>
+                      <input [disabled]='!startDate' min="{{startDate}}" max="{{maxDate}}" [(ngModel)]="endDate" name="endDate" (change)="setRentable()" type="date" class="form-control" id="rent-end-date" placeholder="Bir gün seçiniz.">
+                  </div>
+              </form>
           </div>
-          <br /><br />
-          <div>
-            <p *ngIf="endDate && startDate">
-              Toplam ücret:
-              {{ rentPrice | currency: "TRY":"symbol-narrow":"1.2-2" }}
-            </p>
+          <div class="card">
+            <button [disabled]="!(startDate && endDate)" (click)="addRental()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Kirala</button>
           </div>
-        </form>
       </div>
-      <button
-      [disabled]="!(startDate && endDate)" (click)="addRental()" type="button" class="btn btn-primary" data-bs-dismiss="modal"
-        style="
-          position: absolute;
-          width: 100px;
-          bottom: 225px;
-          right: 20px;
-          background-color: #48494b;
-        "
-      >
-        Kirala
-      </button>
-    </div>
   </div>
 </div>
