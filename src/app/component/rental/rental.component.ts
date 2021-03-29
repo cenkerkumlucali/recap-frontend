@@ -77,6 +77,7 @@ export class RentalComponent implements OnInit {
     }
   }
   openCreditCard(){
+    
     const ref = this.dialogService.open(CreditCardPaymentComponent, {
       data:{
         rental: this.rental
@@ -110,12 +111,35 @@ export class RentalComponent implements OnInit {
     this.toastrService.info("Bu tarihler arasında arabayı kiralayamazsınız","!")
     return 0
   }
+  
 
 
   
   controlEndDate(){
     if(this.endDate<this.startDate){
       this.endDate = this.startDate
+    }
+  }
+  calculatePrice2(){
+    if(this.startDate && this.endDate){
+      let endDate = new Date(this.endDate.toString())
+      let startDate = new Date(this.startDate.toString())
+      let endDay = Number.parseInt(endDate.getDate().toString())
+      let endMonth = Number.parseInt(endDate.getMonth().toString())
+      let endYear = Number.parseInt(endDate.getFullYear().toString())
+      let startDay = Number.parseInt(startDate.getDate().toString())
+      let startMonth = Number.parseInt(startDate.getMonth().toString())
+      let startYear = Number.parseInt(startDate.getFullYear().toString())
+      let result =  ((endDay - startDay) + ((endMonth - startMonth)*30) + ((endYear - startYear)*365) + 1) * this.car.dailyPrice
+      if (result>0){
+        this.rental = {carId:this.car.carId,rentStartDate:this.startDate,rentEndDate:this.endDate,totalRentPrice:result};
+        console.log(result)
+        this.rentPrice = result
+        this.setRentable()
+      }else{
+        this.rentPrice = 0
+        this.toastrService.info("Bu tarihler arasında arabayı kiralayamazsınız")
+      }
     }
   }
 }

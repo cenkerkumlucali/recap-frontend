@@ -5,14 +5,14 @@
       <app-color></app-color>
     </div>
     <div class="col-md-9">
-      <h4 style="margin-left: 35%; margin-top: 14px; margin-bottom: -10px">
+      <h4 style="    margin-left: 41%;margin-top: 10px; margin-bottom: -10px">
         ARABALAR
       </h4>
       <div *ngIf="dataLoaded == false" class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
 
-      <div style="width: 91%" class="mb-3">
+      <div style="width: 91%;" class="mb-3">
         <label for="filterText" class="form-label"></label>
         <input
           type="text"
@@ -31,7 +31,7 @@
           routerLink="/cars/car-detail/{{ car.carId }}"
           *ngFor="let car of cars | carfilterPipe: filterText"
           class="card"
-          style="width: 23rem"
+          style="width:19rem"
         >
           <img
           [src]="car.images.length !== 0 ? imageBasePath+ car.images[0] : imageBasePath + defaultImg"
@@ -47,24 +47,25 @@
             <li class="list-group-item">Renk: {{ car.colorName }}</li>
             <li class="list-group-item">Model Yılı: {{ car.modelYear }}</li>
             <li class="list-group-item">
-              Fiyat: {{ car.dailyPrice | currency }}
+              Fiyat: {{ car.dailyPrice |currency: "TRY":"symbol-narrow":"1.2-2" }}
             </li>
-            <li class="list-group-item">Açıklama: {{ car.description }}</li>
+            
           </ul>
           <div class="card-body">
             <section style="float: top">
               <button
                 routerLink="/cars/detail/{{ car.carId }}"
                 type="button"
-                class="btn btn-outline-dark"
+                class="btn btn-outline-success"
+                
               >
                 Detaylar
               </button>
               <button
                 routerLink="/rental/{{ car.carId }}"
-              style="margin-left: 100px;width: 80px;"
+              style=" margin-top: -64px;   margin-left: 122px;width: 80px;"
                 type="button"
-                class="btn btn-outline-dark"
+                class="btn btn-outline-success"
               >
                 Kirala
               </button>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder ,Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Payment } from 'src/app/models/payment';
 import { Rental } from 'src/app/models/rental';
@@ -34,6 +34,7 @@ export class CreditCardPaymentComponent implements OnInit {
 
     private paymentService: PaymentService,
     private rentalService: RentalService,
+    private router:Router,
     private toastrService: ToastrService,
     private customerCreditCardService:CustomerCreditCardService,
     private authService:AuthService,
@@ -45,8 +46,8 @@ export class CreditCardPaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRental()
-    this.getSavedCards()
     this.setCreditCardForm();
+    this.getSavedCards()
     
   }
   getRental(){
@@ -69,28 +70,29 @@ export class CreditCardPaymentComponent implements OnInit {
       this.updateCard(payment)
       this.rentalService.addRental(this.rental)
       this.toastrService.success("Arabayı kiraladınız","Işlem başarılı")
+      this.router.navigate([''])
       setTimeout(function(){
         location.reload()
-      },400)
+      },0)
     
     }else {
-      this.toastrService.error("Kartınızda yeterli para bulunmamaktadır","Hata")
+      this.toastrService.error("Hata")
     }
   } 
   async rent(){
     if(this.creditCardForm.valid){
       let payment:Payment = Object.assign({},this.creditCardForm.value)
-      this.cardExist = await this.isCardExist(payment)  
+      this.cardExist = await this.isCardExist(payment)
       if(this.cardExist){
-        let payment = await((this.getFakeCardByCardNumber(this.cardNumber))) 
-        let wannaSave = await this.isSaved(payment)
+        let newPayment = await((this.getFakeCardByCardNumber(this.cardNumber))) 
+        let wannaSave = await this.isSaved(newPayment)
         if(!wannaSave){
-          this.rentACar(payment)
+          this.rentACar(newPayment)
         }
       }else{
-        this.toastrService.error("Bankanız bilgilerinizi onaylamadı","Hata")
+        this.toastrService.error("Hesap bilgileriniz onaylanmadı","Hata")
       }
-    }else{ 
+    }else{
       this.toastrService.error("Formu doldurmanız gerekli","Hata")
     }
     
@@ -100,7 +102,7 @@ export class CreditCardPaymentComponent implements OnInit {
     let result = false
     let customerId = this.authService.getCurrentUserId();
     let customerCards = (await this.customerCreditCardService.getByCustomerId(customerId).toPromise()).data
-    let isContains = customerCards.map(cc => cc.cardId).includes(payment.id)
+    let isContains = customerCards.map(c => c.cardId).includes(payment.id)
     if(!isContains){
       this.wannaSave(payment)
       result =  true
@@ -111,7 +113,7 @@ export class CreditCardPaymentComponent implements OnInit {
     this.confirmationService.confirm({
       message:'Kartınız sistemde kayıtlı değil kaydetmek ister misiniz?',
       accept: () => {
-        this.saveCreditCard(payment)
+        this.saveCard(payment)
         this.rentACar(payment)
       },
       reject: () => {
@@ -149,13 +151,12 @@ export class CreditCardPaymentComponent implements OnInit {
     )
   }
 
-  async getFakeCardByCardNumber(cardNumber: string) {
-    return (await this.paymentService.getCardByNumber(cardNumber).toPromise())
-      .data[0];
+  async getFakeCardByCardNumber(cardNumber:string):Promise<Payment>{
+    return (await (this.paymentService.getCardByNumber(cardNumber)).toPromise()).data[0]
   }
 
-  updateCard(payment: Payment) {
-    this.paymentService.updateCard(payment);
+  updateCard(payment:Payment){
+    this.paymentService.updateCard(payment).subscribe();
   }
   
 }

@@ -13,3 +13,30 @@
   .container {
     padding: 2px 16px;
   }
+  :host {
+    margin: 10px;
+    align-self: auto;
+    flex: 0 1 auto;
+  }
+  
+  .card {
+    max-width: 250px;
+  }
+  
+  .card-image > img {
+    width: 100%;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+   
+  }
+  
+  .car-model {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 0;
+  }

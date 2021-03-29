@@ -45,14 +45,15 @@
           <li class="list-group-item">Marka: {{carDto.brandName |uppercase}}</li>
           <li class="list-group-item">Renk: {{carDto.colorName}}</li>
           <li class="list-group-item">Model Yılı: {{carDto.modelYear}}</li>
-          <li class="list-group-item">Fiyat: {{carDto.dailyPrice |currency}}</li>
+          <li class="list-group-item">Fiyat: {{carDto.dailyPrice |currency: "TRY":"symbol-narrow":"1.2-2" }}</li>
           <li class="list-group-item">Açıklama: {{carDto.description}}</li>
         </ul>
         <section style="float: right">
           <div *ngFor="let car of carDto.images" class="carousel-caption d-none d-md-block">
-            <button routerLink = "/rental/{{carDto.carId}}" type="button"style="width: 120px; margin-left: 64%;margin-top: -521px;" 
-            class="btn btn-outline-dark">Kirala</button>
           </div> 
+          <button routerLink = "/rental/{{carDto.carId}}" type="button"style=" width: 120px;
+          margin-right: 10px;   margin-top: 21px;width: 120px; " 
+          class="btn btn-outline-success">Kirala</button>
           <app-car-update  [carForUpdate]="carDto"></app-car-update>
         </section>
       </div>

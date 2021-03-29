@@ -1,0 +1,25 @@
+
+.footer-caner2{background-color:#292c2f;box-shadow:0 1px 1px 0 rgba(0,0,0,0.12);box-sizing:border-box;width:100%;text-align:left;font:bold 16px sans-serif;padding:55px 50px;margin-top:80px}
+.footer-caner2 .footer-left,.footer-caner2 .footer-center,.footer-caner2 .footer-right{display:inline-block;vertical-align:top}
+.footer-caner2 .footer-left{width:40%}
+.footer-caner2 h3{color:#fff;font:normal 36px Cookie,cursive;margin:0}
+.footer-caner2 h3 span{color:#5383d3}
+.footer-caner2 .footer-links{color:#fff;margin:20px 0 12px;padding:0}
+.footer-caner2 .footer-links a{display:inline-block;line-height:1.8;text-decoration:none;color:inherit}
+.footer-caner2 .footer-textcaner{color:#8f9296;font-size:14px;font-weight:400;margin:0}
+.footer-caner2 .footer-center{width:35%}
+.footer-caner2 .footer-center i{background-color:#33383b;color:#fff;font-size:25px;width:38px;height:38px;border-radius:50%;text-align:center;line-height:42px;margin:10px 15px;vertical-align:middle}
+.footer-caner2 .footer-center i.fa-envelope{font-size:17px;line-height:38px}
+.footer-caner2 .footer-center p{display:inline-block;color:#fff;vertical-align:middle;margin:0}
+.footer-caner2 .footer-center p span{display:block;font-weight:400;font-size:14px;line-height:2}
+.footer-caner2 .footer-center p a{color:#5383d3;text-decoration:none}
+.footer-caner2 .footer-right{width:20%}
+.footer-caner2 .footer-canerhak1{line-height:20px;color:#92999f;font-size:13px;font-weight:400;margin:0}
+.footer-caner2 .footer-canerhak1 span{display:block;color:#fff;font-size:14px;font-weight:700;margin-bottom:20px}
+.footer-caner2 .footer-icons{margin-top:25px}
+.footer-caner2 .footer-icons a{display:inline-block;width:35px;height:35px;cursor:pointer;background-color:#33383b;border-radius:2px;font-size:20px;color:#fff;text-align:center;line-height:35px;margin-right:3px;margin-bottom:5px}
+@media (max-width: 880px) {
+.footer-caner2{font:bold 14px sans-serif}
+.footer-caner2 .footer-left,.footer-caner2 .footer-center,.footer-caner2 .footer-right{display:block;width:100%;margin-bottom:40px;text-align:center}
+.footer-caner2 .footer-center i{margin-left:0}
+}

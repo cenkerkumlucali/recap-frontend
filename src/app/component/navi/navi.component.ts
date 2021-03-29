@@ -24,7 +24,7 @@ export class NaviComponent implements OnInit {
     this.checkToLogin();
     this.checkToEmail();
     this.getEmail();
-    console.log(this.user.firstName)
+
   }
 
   checkToLogin(){

@@ -29,10 +29,10 @@ getCardById(id:number):Observable<SingleResponseModel<Payment>>{
   let newPath = this.apiUrl +"fakecards/getbyid?id="+id
   return this.httpClient.get<SingleResponseModel<Payment>>(newPath)
 }
-  updateCard(payment:Payment){
-    let newPath = this.apiUrl + "fakecards/update"
-    this.httpClient.put(newPath,payment)
-  }
+updateCard(payment:Payment):Observable<ResponseModel>{
+  let newPath = this.apiUrl + "fakecards/update"
+  return this.httpClient.put<ResponseModel>(newPath,payment)
+}
 
 
 }

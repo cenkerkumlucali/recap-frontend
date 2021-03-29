@@ -53,6 +53,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './component/register/register.component';
 import { ProfilComponent } from './component/profil/profil.component';
 import { ProfilUpdateComponent } from './component/profil/profil-update/profil-update.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import { ProfilUpdateComponent } from './component/profil/profil-update/profil-u
     RegisterComponent,
     ProfilComponent,
     ProfilUpdateComponent,
+    FooterComponent,
     
     
 

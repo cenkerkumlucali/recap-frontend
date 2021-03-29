@@ -39,9 +39,9 @@
   
 </header> -->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg" style="background-color: #198754">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a routerLink="" class="navbar-brand" style="color: white;">RentCK</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -55,16 +55,49 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a routerLink="" class="nav-link px-2 text-white">Ana Sayfa</a></li>
+        <!-- <li><a routerLink="" class="nav-link px-2 text-white">Ana Sayfa</a></li>
         <li><a routerLink="cars" class="nav-link px-2 text-white">Araçlar</a></li>
         <li><a routerLink="brands" class="nav-link px-2 text-white">Markalar</a></li>
-        <li><a routerLink="colors" class="nav-link px-2 text-white">Renkler</a></li>
+        <li><a routerLink="colors" class="nav-link px-2 text-white">Renkler</a></li> -->
+
+        <li class="nav-item dropdown active">
+          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Araç işlemleri
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" routerLink="cars" >Araçlar</a></li>
+            <li><a class="dropdown-item" routerLink="cars/add" >Araçlar ekle</a></li>
+          </ul>
+        </li>  
+
+        <li class="nav-item dropdown active">
+          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Marka işlemleri
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" routerLink="brands" >Markalar</a></li>
+            <li><a class="dropdown-item" routerLink="brands/add" >Marka ekle</a></li>
+          </ul>
+        </li>  
+        <li class="nav-item dropdown active">
+          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Renk işlemleri
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" routerLink="colors" >Renkler</a></li>
+            <li><a class="dropdown-item" routerLink="colors/add" >Renk ekle</a></li>
+          </ul>
+        </li> 
+
       </ul>
+
       <div class="text-end" *ngIf="checkToLogin()==false">
-        <button routerLink="login" type="button" class="btn btn-danger">
+        <button routerLink="login" type="button" class="btn btn-success" style="margin-right: 10px;    background-color: #12a661;
+            border-color: #084e2d;">
           Giriş yap
         </button>
-        <button routerLink="register" type="button" class="btn btn-warning">
+        <button routerLink="register" type="button" class="btn btn-success" style="    background-color: #12a661;
+            border-color: #084e2d;">
           Kayıt ol
         </button>
       </div>
@@ -76,6 +109,7 @@
           data-bs-toggle="dropdown"
           aria-expanded="true"
            type="button"
+           style="color: white;"
         >
         
         {{this.user.firstName}} {{this.user.lastName}}

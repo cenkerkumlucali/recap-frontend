@@ -1,24 +1,25 @@
 <div *ngIf="car" class="content d-flex justify-content-center">
   <div class="row justify-content-md-center">
-      <div class="col-md-12">
-          <div class="p-fluid p-formgrid p-grid">
+      <div class="col-md-12 ">
+          <div class="p-fluid p-formgrid p-grid ">
               <form>
                   <div class="mb-3">
                       <label for="daily-price" class="form-label">Günlük Ücret:</label>
+                
                       <input [value]="car.dailyPrice | currency" disabled="disabled" type="text" class="form-control" id="daily-price" >
                   </div>
-                  <div class="mb-3" style="width: 12rem;">
+                  <div class="mb-3" style="width: 25rem;">
                       <label for="rent-date" class="form-label">Başlangıç:</label>
-                      <input  min="{{minDate}}" (change)="controlEndDate()" [(ngModel)]="startDate" name="startDate" type="date" class="form-control" id="rent-start-date" placeholder="Bir gün seçiniz.">
+                      <input  min="{{minDate}}" (change)="controlEndDate()" [(ngModel)]="startDate" name="startDate" type="date" class="form-control" id="rent-start-date" >
                   </div>
-                  <div class="mb-3" style="width: 12rem;">
+                  <div class="mb-3" style="width: 25rem;">
                       <label for="return-date" class="form-label">Bitiş:</label>
-                      <input [disabled]='!startDate' min="{{startDate}}" max="{{maxDate}}" [(ngModel)]="endDate" name="endDate" (change)="setRentable()" type="date" class="form-control" id="rent-end-date" placeholder="Bir gün seçiniz.">
+                      <input [disabled]='!startDate' min="{{startDate}}" max="{{maxDate}}" [(ngModel)]="endDate" name="endDate" (change)="setRentable()" type="date" class="form-control" id="rent-end-date" >
                   </div>
               </form>
           </div>
           <div class="card">
-            <button [disabled]="!(startDate && endDate)" (click)="addRental()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Kirala</button>
+            <button [disabled]="!(startDate && endDate)" (click)="addRental()" type="button" class="btn btn-success" data-bs-dismiss="modal">Kirala</button>
           </div>
       </div>
   </div>
