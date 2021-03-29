@@ -47,6 +47,7 @@
           <li class="list-group-item">Model Yılı: {{carDto.modelYear}}</li>
           <li class="list-group-item">Fiyat: {{carDto.dailyPrice |currency: "TRY":"symbol-narrow":"1.2-2" }}</li>
           <li class="list-group-item">Açıklama: {{carDto.description}}</li>
+          <li class="list-group-item">Findeks puanı: {{ carDto.minFindeksScore }}</li>
         </ul>
         <section style="float: right">
           <div *ngFor="let car of carDto.images" class="carousel-caption d-none d-md-block">

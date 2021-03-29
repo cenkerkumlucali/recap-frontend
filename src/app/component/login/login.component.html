@@ -1,5 +1,5 @@
 <body class="text-center">
-<main class="form-signin">
+<main class="form-signin  ">
     <form [formGroup]="loginForm">
       <h1 class="h3 mb-3 fw-normal">Giriş yap</h1>
   
@@ -12,13 +12,14 @@
         <label for="floatingPassword">Şifre</label>
       </div>
   
-      <div class="checkbox mb-3">
-        <label>
+      <!-- <div class="checkbox mb-3"> -->
+        <!-- <label>
           <input type="checkbox" value="remember-me"> Beni hatırla
-        </label>
-      </div>
+        </label> -->
+      <!-- </div> -->
+      <p routerLink="/register">Hesabın yok mu?</p>
       <button (click)="login()" class="w-100 btn btn-lg btn-success" type="submit">Giriş yap</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+      
     </form>
   </main>
     </body>

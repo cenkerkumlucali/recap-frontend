@@ -6,4 +6,5 @@ export interface CarDetail{
     modelYear:number;
     description:string;
     images:string[]
+    minFindeksScore:number
 }
