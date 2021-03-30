@@ -7,4 +7,7 @@ export interface CarDetail{
     description:string;
     images:string[]
     minFindeksScore:number
+    colorId?:number
+    brandId?:number
+    
 }

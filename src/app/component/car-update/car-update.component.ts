@@ -19,7 +19,7 @@ export class CarUpdateComponent implements OnInit {
   currentCar: Car;
   brands:Brand[]=[]
   colors:Color[]=[]
-  @Input() carForUpdate:Car
+  @Input() carForUpdate:CarDetail
 
   constructor(private formBuilder: FormBuilder,
               private carService: CarService,

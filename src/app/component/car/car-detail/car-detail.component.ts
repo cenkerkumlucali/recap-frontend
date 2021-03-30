@@ -13,6 +13,7 @@ export class CarDetailComponent implements OnInit {
 
   cars: CarDetail[] = [];
   carDto:CarDetail
+  Images:string[]=[]
   dataLoaded = false;
   imageBasePath = environment.baseUrl;
   defaultImg="/images/default.jpg"
@@ -31,8 +32,8 @@ export class CarDetailComponent implements OnInit {
     this.carService.getCarDetailsByCarId(carId).subscribe((response) => {
       this.cars = response.data;
       this.carDto = response.data[0]
-      console.log(this.carDto.carId)
       this.dataLoaded = true;
+      this.Images=this.carDto.images
     });
   }
 }

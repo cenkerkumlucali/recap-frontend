@@ -21,6 +21,7 @@ import { DatePipe } from '@angular/common';
 })
 export class RentalComponent implements OnInit {
   car:CarDetail;
+  cars:CarDetail[]=[]
   startDate:Date;
   endDate:Date;
   rentPrice:number = 0;
@@ -52,6 +53,7 @@ export class RentalComponent implements OnInit {
     this.maxDate=this.datePipe.transform(new Date(new Date().setFullYear(new Date().getFullYear() + 1)),"yyyy-MM-dd");
   }
   
+  
 
   getCarDetail(carId:number) {
     this.carService.getCarDetailsByCarId(carId).subscribe((response) => {
@@ -67,7 +69,7 @@ export class RentalComponent implements OnInit {
         this.rental = this.rental;
         this.rental.userId = this.authService.getCurrentUserId()
         this.openCreditCard()
-        console.log(this.rental)
+       
       }
       else{
         this.toastrService.error("Findeks puanınız yeterli değil","Hata")
@@ -113,33 +115,9 @@ export class RentalComponent implements OnInit {
   }
   
 
-
-  
   controlEndDate(){
     if(this.endDate<this.startDate){
       this.endDate = this.startDate
-    }
-  }
-  calculatePrice2(){
-    if(this.startDate && this.endDate){
-      let endDate = new Date(this.endDate.toString())
-      let startDate = new Date(this.startDate.toString())
-      let endDay = Number.parseInt(endDate.getDate().toString())
-      let endMonth = Number.parseInt(endDate.getMonth().toString())
-      let endYear = Number.parseInt(endDate.getFullYear().toString())
-      let startDay = Number.parseInt(startDate.getDate().toString())
-      let startMonth = Number.parseInt(startDate.getMonth().toString())
-      let startYear = Number.parseInt(startDate.getFullYear().toString())
-      let result =  ((endDay - startDay) + ((endMonth - startMonth)*30) + ((endYear - startYear)*365) + 1) * this.car.dailyPrice
-      if (result>0){
-        this.rental = {carId:this.car.carId,rentStartDate:this.startDate,rentEndDate:this.endDate,totalRentPrice:result};
-        console.log(result)
-        this.rentPrice = result
-        this.setRentable()
-      }else{
-        this.rentPrice = 0
-        this.toastrService.info("Bu tarihler arasında arabayı kiralayamazsınız")
-      }
     }
   }
 }

@@ -1,26 +1,51 @@
-<div *ngIf="car" class="content d-flex justify-content-center">
-  <div class="row justify-content-md-center">
-      <div class="col-md-12 ">
-          <div class="p-fluid p-formgrid p-grid ">
-              <form>
-                  <div class="mb-3">
-                      <label for="daily-price" class="form-label">Günlük Ücret:</label>
-                
-                      <input [value]="car.dailyPrice | currency" disabled="disabled" type="text" class="form-control" id="daily-price" >
-                  </div>
-                  <div class="mb-3" style="width: 25rem;">
-                      <label for="rent-date" class="form-label">Başlangıç:</label>
-                      <input  min="{{minDate}}" (change)="controlEndDate()" [(ngModel)]="startDate" name="startDate" type="date" class="form-control" id="rent-start-date" >
-                  </div>
-                  <div class="mb-3" style="width: 25rem;">
-                      <label for="return-date" class="form-label">Bitiş:</label>
-                      <input [disabled]='!startDate' min="{{startDate}}" max="{{maxDate}}" [(ngModel)]="endDate" name="endDate" (change)="setRentable()" type="date" class="form-control" id="rent-end-date" >
-                  </div>
-              </form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+         
+          <img *ngIf="cars"
+          [src]="car.images.length !== 0 ? imageBasePath+ car.images[0] : imageBasePath + defaultImg"
+            class="card-img-top"
+            alt="{{ car.brandName }} Image"
+            width="50%"
+            height="75%"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ car.brandName | uppercase }}</h5>
           </div>
-          <div class="card">
-            <button [disabled]="!(startDate && endDate)" (click)="addRental()" type="button" class="btn btn-success" data-bs-dismiss="modal">Kirala</button>
-          </div>
-      </div>
-  </div>
+          <ul style="margin-bottom: -128px;" class="list-group list-group-flush">
+            <li class="list-group-item">Renk: {{ car.colorName }}</li>
+            <li class="list-group-item">Model Yılı: {{ car.modelYear }}</li>
+            <li class="list-group-item">Fiyat: {{ car.dailyPrice |currency: "TRY":"symbol-narrow":"1.2-2" }}</li>
+          </ul>
+        </div>
+        <div class="col-md-8">
+
+            <div *ngIf="car" class="content d-flex justify-content-center">
+              <div class="row justify-content-md-center">
+                  <div class="col-md-12 ">
+                      <div class="p-fluid p-formgrid p-grid ">
+                          <form>
+                              <div class="mb-3">
+                                  <label for="daily-price" class="form-label">Günlük Ücret:</label>
+                            
+                                  <input [value]="car.dailyPrice | currency" disabled="disabled" type="text" class="form-control" id="daily-price" >
+                              </div>
+                              <div class="mb-3" style="width: 25rem;">
+                                  <label for="rent-date" class="form-label">Başlangıç:</label>
+                                  <input  min="{{minDate}}" (change)="controlEndDate()" [(ngModel)]="startDate" name="startDate" type="date" class="form-control" id="rent-start-date" >
+                              </div>
+                              <div class="mb-3" style="width: 25rem;">
+                                  <label for="return-date" class="form-label">Bitiş:</label>
+                                  <input [disabled]='!startDate' min="{{startDate}}" max="{{maxDate}}" [(ngModel)]="endDate" name="endDate" (change)="setRentable()" type="date" class="form-control" id="rent-end-date" >
+                              </div>
+                          </form>
+                      </div>
+                      <div class="card">
+                        <button [disabled]="!(startDate && endDate)" (click)="addRental()" type="button" class="btn btn-success" data-bs-dismiss="modal">Kirala</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
 </div>
