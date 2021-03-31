@@ -20,7 +20,7 @@ This project is the frontend part of <a href="https://github.com/cenkerkumlucali
 - Reactive Forms
 - Validasyon işlemleri
   - Toastr
-- Componentler arası veri Transfer, Child to Parent Data Binding
+- Data transfer between Components, Child to Parent Data Binding
 - Locale Storage control
 - Models
 - Services
