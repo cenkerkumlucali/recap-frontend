@@ -23,12 +23,12 @@
         />
       </div>
 
-      <div *ngIf="filterText" class="alert alert-primary">
+      <div *ngIf="filterText" class="alert alert-success">
         {{ filterText }} aradınız.
       </div>
       <div class="row" *ngIf="dataLoaded == true">
         <div
-          routerLink="/cars/car-detail/{{ car.carId }}"
+            
           *ngFor="let car of cars | carfilterPipe: filterText"
           class="card"
           style="width:19rem"
