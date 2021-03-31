@@ -9,8 +9,8 @@
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
           <div class="carousel-inner">
-            <div *ngFor="let car of Images ; index as i; first as firstImage" [ngClass]="{ active: firstImage }" class="carousel-item " data-bs-interval="10000">
-              <img [src]="imageBasePath+ car" width="300" height="425" class="d-block w-100" alt="{{carDto.description}} Image">  
+            <div *ngFor="let car of Images ; index as i; first as firstImage " [ngClass]="{ active: firstImage }" class="carousel-item " data-bs-interval="10000">
+              <img [src]="carDto.images.length !== 0 ? imageBasePath+ car: imageBasePath + defaultImg" width="300" height="425" class="d-block w-100" alt="{{carDto.description}} Image">  
               </div>
             </div>
             
