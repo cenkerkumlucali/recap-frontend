@@ -11,14 +11,14 @@ This project is the frontend part of <a href="https://github.com/cenkerkumlucali
   - Update
   - Delete
 - Filter
- - Multiple filtering
+  - Multiple filtering
 - Auth
   - Login
   - Register
   - Profile Update
   - Password Update
 - Reactive Forms
-- Validasyon işlemleri
+- Validation processes
   - Toastr
 - Data transfer between Components, Child to Parent Data Binding
 - Locale Storage control
