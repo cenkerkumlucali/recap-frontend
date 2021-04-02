@@ -45,7 +45,7 @@ This project is the frontend part of <a href="https://github.com/cenkerkumlucali
 ## Car-Detail
 ![Car-detail](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/car-detail.png)
 ## Car-Update
-![Car-update](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/car-update-2.png)
+![Car-update](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/car-update.png)
 ## Rental
 ![Rental](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/rental.png)
 ## Payment
@@ -53,8 +53,6 @@ This project is the frontend part of <a href="https://github.com/cenkerkumlucali
 ## Profil-Edit
 ![Profil-edit](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/profil-edit.png)
 ## Brands-List
-![Brands-list](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brands-list.png)
-## Brand-Add
-![Brand-add](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brand-add.png)
+![Brands-list](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brands.png)
 ## Brand-Update
 ![Brand-update](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brand-update.png)
