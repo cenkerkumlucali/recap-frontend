@@ -36,6 +36,8 @@ This project is the frontend part of <a href="https://github.com/cenkerkumlucali
 
 ## Home 
 ![Home](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/home.png)
+## Cars 
+![Cars](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/cars.png)
 ## Login
 ![Login](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/login.png)
 ## Register
@@ -52,5 +54,7 @@ This project is the frontend part of <a href="https://github.com/cenkerkumlucali
 ![Profil-edit](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/profil-edit.png)
 ## Brands-List
 ![Brands-list](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brands-list.png)
-## Brands-Add
+## Brand-Add
 ![Brand-add](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brand-add.png)
+## Brand-Update
+![Brand-update](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brand-update.png)
