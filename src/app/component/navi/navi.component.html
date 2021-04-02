@@ -54,13 +54,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <!-- <li><a routerLink="" class="nav-link px-2 text-white">Ana Sayfa</a></li>
+      <ul  class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li ><a  routerLink="" class="nav-link px-2 text-white">Ana Sayfa</a></li>
         <li><a routerLink="cars" class="nav-link px-2 text-white">Araçlar</a></li>
         <li><a routerLink="brands" class="nav-link px-2 text-white">Markalar</a></li>
-        <li><a routerLink="colors" class="nav-link px-2 text-white">Renkler</a></li> -->
+        <li><a routerLink="colors" class="nav-link px-2 text-white">Renkler</a></li>
 
-        <li class="nav-item dropdown active">
+        <!-- <li class="nav-item dropdown active">
           <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Araba işlemleri
           </a>
@@ -87,7 +87,7 @@
             <li><a class="dropdown-item" routerLink="colors" >Renkler</a></li>
             <li><a class="dropdown-item" routerLink="colors/add" >Renk ekle</a></li>
           </ul>
-        </li> 
+        </li>  -->
 
       </ul>
 
@@ -118,6 +118,9 @@
         
         <div class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li><a routerLink="/profil" class="dropdown-item">Profil düzenle</a></li>
+          <li><a routerLink="cars/add" class="dropdown-item">Araba ekle</a></li>
+          <li><a routerLink="brands/add" class="dropdown-item">Marka ekle</a></li>
+          <li><a routerLink="colors/add" class="dropdown-item">Renk ekle</a></li>
           <li><a class="dropdown-item disabled">Ayarlar</a></li>
           <li><hr class="dropdown-divider" /></li>
           <a (click)="logOut()" class="dropdown-item">Çıkış yap</a>
