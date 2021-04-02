@@ -19,8 +19,8 @@
           <tr *ngFor="let color of colors">
             <td>{{color.colorId}}</td>
             <td>{{color.colorName}}</td>
-            <td><button routerLink="/colors/update/{{color.colorId}}" class="btn btn-success" style="border-radius: 50px;">Update</button></td>
-            <td><button (click)="deleteColor(color)" class="btn btn-danger" style="border-radius: 50px;">Delete</button></td>
+            <td><button routerLink="/colors/update/{{color.colorId}}" class="btn btn-success" style="border-radius: 50px;">Güncelle</button></td>
+            <td><button (click)="deleteColor(color)" class="btn btn-danger" style="border-radius: 50px;">Sil</button></td>
           </tr>
         </tbody>
       </table>
