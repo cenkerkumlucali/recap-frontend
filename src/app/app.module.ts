@@ -54,6 +54,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { ProfilComponent } from './component/profil/profil.component';
 import { ProfilUpdateComponent } from './component/profil/profil-update/profil-update.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { HomeComponent } from './component/home/home.component';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { FooterComponent } from './component/footer/footer.component';
     ProfilComponent,
     ProfilUpdateComponent,
     FooterComponent,
+    HomeComponent,
     
     
 

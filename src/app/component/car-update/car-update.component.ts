@@ -52,7 +52,6 @@ export class CarUpdateComponent implements OnInit {
     this.carService.update(carModel).subscribe((response) => {
       this.toastrService.success(response.message);
     }, responseError => {
-      console.log(responseError);
       this.toastrService.error(responseError.error.message);
     });
   } 

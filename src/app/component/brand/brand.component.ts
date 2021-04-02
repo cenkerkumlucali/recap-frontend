@@ -11,7 +11,7 @@ import { BrandService } from '../../services/brand.service';
 })
 export class BrandComponent implements OnInit {
   constructor(private toastrService:ToastrService,
-    private brandService: BrandService) {}
+              private brandService: BrandService) {}
  
   brands: Brand[];
   brand : Brand

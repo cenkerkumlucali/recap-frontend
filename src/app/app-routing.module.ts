@@ -18,11 +18,12 @@ import { LoginComponent } from './component/login/login.component';
 import { LoginGuard } from './guard/login.guard';
 import { RegisterComponent } from './component/register/register.component';
 import { ProfilUpdateComponent } from './component/profil/profil-update/profil-update.component';
+import { HomeComponent } from './component/home/home.component';
 
 
 const routes: Routes = [
 
-  {path:"",component:CarComponent},
+  {path:"",component:HomeComponent},
 
   {path:"cars",component:CarComponent},
   
