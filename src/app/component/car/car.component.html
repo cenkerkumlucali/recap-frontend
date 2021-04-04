@@ -14,32 +14,17 @@
 
       <div style="width: 91%;" class="mb-3">
         <label for="filterText" class="form-label"></label>
-        <input
-          type="text"
-          [(ngModel)]="filterText"
-          class="form-control"
-          id="filterText"
-          placeholder="Araç ismi giriniz"
-        />
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+          placeholder="Araç ismi giriniz" />
       </div>
 
       <div *ngIf="filterText" class="alert alert-success">
         {{ filterText }} aradınız.
       </div>
       <div class="row" *ngIf="dataLoaded == true">
-        <div
-            
-          *ngFor="let car of cars | carfilterPipe: filterText"
-          class="card"
-          style="width:19rem"
-        >
-          <img
-            [src]="car.images.length !== 0 ? imageBasePath+ car.images[0] : imageBasePath + defaultImg"
-            class="card-img-top"
-            alt="{{ car.description }} Image"
-            width="100%"
-            height="100%"
-          />
+        <div *ngFor="let car of cars | carfilterPipe: filterText" class="card" style="width:19rem">
+          <img [src]="car.images.length !== 0 ? imageBasePath+ car.images[0] : imageBasePath + defaultImg"
+            class="card-img-top" alt="{{ car.description }} Image" width="100%" height="100%" />
           <div class="card-body">
             <h5 class="card-title">{{ car.brandName | uppercase }}</h5>
           </div>
@@ -51,20 +36,11 @@
           </ul>
           <div class="card-body">
             <section style="float: top">
-              <button
-                routerLink="/cars/detail/{{ car.carId }}"
-                type="button"
-                class="btn btn-outline-success"
-                
-              >
+              <button routerLink="/cars/detail/{{ car.carId }}" type="button" class="btn btn-outline-success">
                 Detaylar
               </button>
-              <button
-                routerLink="/rental/{{ car.carId }}"
-              style=" margin-top: -64px;   margin-left: 122px;width: 80px;"
-                type="button"
-                class="btn btn-outline-success"
-              >
+              <button routerLink="/rental/{{ car.carId }}" style=" margin-top: -64px;   margin-left: 122px;width: 80px;"
+                type="button" class="btn btn-outline-success">
                 Kirala
               </button>
             </section>
