@@ -57,9 +57,9 @@ const routes: Routes = [
 
   {path:"cars/filter/:brandId/:colorId",component:CarComponent},
 
-  {path:"rental/:carId", component:RentalComponent},
+  {path:"rental/:carId", component:RentalComponent,canActivate:[LoginGuard]},
   
-  {path:"creditcard/:rental", component:CreditCardPaymentComponent}
+  {path:"creditcard/:rental", component:CreditCardPaymentComponent,canActivate:[LoginGuard]}
   
 
 ];

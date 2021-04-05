@@ -56,9 +56,6 @@ export class CarAddComponent implements OnInit {
             }
           }
         })
-        this.carImageService.add(carModel).subscribe(response=>{
-          this.toastrService.success(response.message,"Başarılı")
-        })
       }else{
         this.toastrService.error("Formunuz eksik","Dikkat")
       }
