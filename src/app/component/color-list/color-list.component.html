@@ -1,4 +1,4 @@
-  
+<!--   
 <div class="row">
     <div class="col-md-12" style="text-align:right">
   
@@ -19,11 +19,48 @@
           <tr *ngFor="let color of colors">
             <td>{{color.colorId}}</td>
             <td>{{color.colorName}}</td>
-            <td><button routerLink="/colors/update/{{color.colorId}}" class="btn btn-success" style="border-radius: 50px;">Güncelle</button></td>
-            <td><button (click)="deleteColor(color)" class="btn btn-danger" style="border-radius: 50px;">Sil</button></td>
+            <td><button *ngIf="checkToLogin()" routerLink="/colors/update/{{color.colorId}}" class="btn btn-success" style="border-radius: 50px;">Güncelle</button></td>
+            <td><button *ngIf="checkToLogin()" (click)="deleteColor(color)" class="btn btn-danger" style="border-radius: 50px;">Sil</button></td>
           </tr>
         </tbody>
       </table>
   
     </div>
+  </div> -->
+
+
+  <p-table #dt  [rows]="6" [paginator]="true" 
+currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+ [rowHover]="true" dataKey="id"
+ [showCurrentPageReport]="true"[value]="colors"> 
+<ng-template pTemplate="header">
+    <tr>
+        <th style="width: 3rem">
+            <p-tableHeaderCheckbox ></p-tableHeaderCheckbox>
+        </th>
+        <th pSortableColumn="name">Renkler <p-sortIcon field="name"></p-sortIcon></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+</ng-template>
+<ng-template pTemplate="body" let-color>
+    <tr >  
+       <td> </td>
+      <td>{{color.colorName}}</td>
+      <td> </td>
+      <td> </td>
+        <td>
+            <button style="background-color: #198754;margin-right: 10px;"pButton pRipple label="Ekle" icon="pi pi-plus" class="p-button-success p-mr-2" routerLink="/colors/add"></button>
+            <button *ngIf="checkToLogin()" style="margin-right:10px;" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" routerLink="/colors/update/{{color.colorId}}"></button>
+            <button *ngIf="checkToLogin()"  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"(click)="deleteColor(color)"></button>
+        </td>
+        
+    </tr>
+</ng-template>
+<ng-template pTemplate="summary">
+  <div class="p-d-flex p-ai-center p-jc-between">
+      Toplamda {{colors ? colors.length : 0 }} renk var.
   </div>
+</ng-template>
+</p-table>

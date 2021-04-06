@@ -60,7 +60,10 @@ export class AuthService {
     
     }
   }
-  
+ 
+  logout(){
+    this.storageService.remove("token");
+  }
   loggedIn(): boolean {
     let isExpired = this.jwtHelperService.isTokenExpired(this.storageService.getToken());
     return !isExpired;

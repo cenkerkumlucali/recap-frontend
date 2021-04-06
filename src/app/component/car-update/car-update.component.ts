@@ -5,6 +5,7 @@ import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/carDetail';
 import { Color } from 'src/app/models/color';
+import { AuthService } from 'src/app/services/auth.service';
 import { BrandService } from 'src/app/services/brand.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/colors.service';
@@ -25,7 +26,8 @@ export class CarUpdateComponent implements OnInit {
               private carService: CarService,
               private toastrService: ToastrService,
               private brandService:BrandService,
-              private colorService:ColorService,) {
+              private colorService:ColorService,
+              private authService:AuthService) {
   }
 
   ngOnInit(): void {
@@ -42,7 +44,8 @@ export class CarUpdateComponent implements OnInit {
       colorId: [this.carForUpdate?this.carForUpdate.colorId: '', Validators.required],
       modelYear: [this.carForUpdate?this.carForUpdate.modelYear:'', Validators.required],
       dailyPrice: [this.carForUpdate?this.carForUpdate.dailyPrice:'', Validators.required],
-      description: [this.carForUpdate?this.carForUpdate.description:'', Validators.required]
+      description: [this.carForUpdate?this.carForUpdate.description:'', Validators.required],
+      minFindeksScore: [this.carForUpdate?this.carForUpdate.minFindeksScore:'', Validators.required]
     });
   }
 
@@ -70,5 +73,13 @@ export class CarUpdateComponent implements OnInit {
     this.colorService.getColors().subscribe(response => {
       this.colors = response.data;
     })
+  }
+
+  checkToLogin(){
+    if(this.authService.isAuthenticated()){
+      return  true;
+    }else{
+      return false;
+    }
   }
 }

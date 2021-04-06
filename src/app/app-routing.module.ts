@@ -39,7 +39,7 @@ const routes: Routes = [
 
   {path:"cars/add", component:CarAddComponent,canActivate:[LoginGuard]},
 
-  {path:"cars/update/:carId", component:CarUpdateComponent,canActivate:[LoginGuard]},
+  {path:"cars/update/:carId", component:CarUpdateComponent},
 
   {path:"brands/update/:brandId", component:BrandUpdateComponent,canActivate:[LoginGuard]},
 

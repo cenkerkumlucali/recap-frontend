@@ -72,7 +72,7 @@ export class RentalComponent implements OnInit {
        
       }
       else{
-        this.toastrService.error("Findeks puanınız yeterli değil","Hata")
+        this.toastrService.error("Findeks puanınız yeterli değil")
       }
     }else{
       this.toastrService.error("Bu tarihler arasında araba zaten kiralanmış","Hata")
@@ -87,7 +87,6 @@ export class RentalComponent implements OnInit {
       header: 'Kart bilgileri',
       width: '40%'
     });
-    this.toastrService.info("Kredi kartı ödeme sayfasına yönlendiriliyor","Yönlendiriliyor")
   }
 
   async setRentable(){

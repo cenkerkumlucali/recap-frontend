@@ -1,7 +1,7 @@
 
 <!-- Button trigger modal -->
 
-<button style="margin-top: 22px;width: 120px;" routerLink="cars/update/{{carForUpdate.carId}}" type="button" class=" btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button *ngIf="checkToLogin()"  style="margin-top: 22px;width: 120px;" type="button" class=" btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Güncelle
 </button>
 
@@ -49,6 +49,11 @@
               <label for="description">Açıklama</label>
               <input type="text" id="description" formControlName="description"
                      class="form-control"value="{{carForUpdate.description}}" placeholder="{{carForUpdate.description}}">
+            </div>
+            <div class="mb-3">
+              <label for="minFindeksScore">Fikdeks puanı</label>
+              <input type="number" id="minFindeksScore" formControlName="minFindeksScore"
+                     class="form-control"value="{{carForUpdate.minFindeksScore}}" placeholder="{{carForUpdate.minFindeksScore}}">
             </div>
             
           </form>

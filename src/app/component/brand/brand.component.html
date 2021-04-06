@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12" style="text-align:right">
 
 
@@ -18,14 +18,52 @@
         <tr *ngFor="let brand of brands">
           <td>{{brand.brandId}}</td>
           <td>{{brand.brandName}}</td>
-          <td><button routerLink="/brands/update/{{brand.brandId}}" class="btn btn-success" style="border-radius: 50px;">Güncelle</button></td>
-          <td><button (click)="deleteBrand(brand)" class="btn btn-danger" style="border-radius: 50px;">Delete</button></td>
+          <td><button *ngIf="checkToLogin()" routerLink="/brands/update/{{brand.brandId}}" class="btn btn-success" style="border-radius: 50px;">Güncelle</button></td>
+          <td><button *ngIf="checkToLogin()" (click)="deleteBrand(brand)" class="btn btn-danger" style="border-radius: 50px;">Delete</button></td>
         </tr>
       </tbody>
     </table>
 
   </div>
 </div>
+ -->
+
+
+<p-table #dt  [rows]="6" [paginator]="true" 
+currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+ [rowHover]="true" dataKey="id"
+ [showCurrentPageReport]="true"[value]="brands"> 
+<ng-template pTemplate="header">
+    <tr>
+        <th style="width: 3rem">
+            <p-tableHeaderCheckbox ></p-tableHeaderCheckbox>
+        </th>
+        <th pSortableColumn="name">Markalar <p-sortIcon field="name"></p-sortIcon></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+</ng-template>
+<ng-template pTemplate="body" let-brand>
+    <tr >  
+       <td> </td>
+      <td>{{brand.brandName}}</td>
+      <td> </td>
+      <td> </td>
+        <td>
+          <button style="background-color: #198754;margin-right: 10px;"pButton pRipple label="Ekle" icon="pi pi-plus" class="p-button-success p-mr-2" routerLink="/brands/add"></button>
+            <button *ngIf="checkToLogin()" style="margin-right:10px;" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" routerLink="/brands/update/{{brand.brandId}}"></button>
+            <button *ngIf="checkToLogin()"  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"(click)="deleteBrand(brand)"></button>
+        </td>
+        
+    </tr>
+</ng-template>
+<ng-template pTemplate="summary">
+  <div class="p-d-flex p-ai-center p-jc-between">
+      Toplamda {{brands ? brands.length : 0 }} marka var.
+  </div>
+</ng-template>
+</p-table>
 <!-- 
 <div *ngFor="let brand of brands">
 

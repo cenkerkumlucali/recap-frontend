@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 import { Brand } from '../../models/brand';
 import { BrandService } from '../../services/brand.service';
 
@@ -11,7 +12,8 @@ import { BrandService } from '../../services/brand.service';
 })
 export class BrandComponent implements OnInit {
   constructor(private toastrService:ToastrService,
-              private brandService: BrandService) {}
+              private brandService: BrandService,
+              private authService:AuthService) {}
  
   brands: Brand[];
   brand : Brand
@@ -25,6 +27,7 @@ export class BrandComponent implements OnInit {
       this.brands = response.data;
       this.brand=response.data[0]
       this.dataLoaded = true;
+      
     });
   }
   deleteBrand(brand:Brand){
@@ -41,5 +44,12 @@ export class BrandComponent implements OnInit {
         }
       }
     })
+  }
+  checkToLogin(){
+    if(this.authService.isAuthenticated()){
+      return true
+    }else{
+      return false
+    }
   }
 }

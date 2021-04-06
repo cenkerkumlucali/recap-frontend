@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Color } from 'src/app/models/color';
+import { AuthService } from 'src/app/services/auth.service';
 import { ColorService } from 'src/app/services/colors.service';
 
 @Component({
@@ -10,8 +11,10 @@ import { ColorService } from 'src/app/services/colors.service';
 })
 export class ColorListComponent implements OnInit {
  colors:Color[]
+ isAuthenticated :boolean
   constructor(private colorService:ColorService,
-    private toastrService:ToastrService) { }
+    private toastrService:ToastrService,
+    private authService:AuthService) { }
 
   ngOnInit(): void {
     this.getColors()
@@ -27,6 +30,13 @@ deleteColor(color:Color){
     this.toastrService.error("Renk silindi")
     setTimeout(()=>{window.location.reload},1500)
   })
+}
+checkToLogin(){
+  if(this.authService.isAuthenticated()){
+    return  true;
+  }else{
+    return false;
+  }
 }
 
 }
