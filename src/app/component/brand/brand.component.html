@@ -41,7 +41,8 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         <th pSortableColumn="name">Markalar <p-sortIcon field="name"></p-sortIcon></th>
         <th></th>
         <th></th>
-        <th></th>
+        <th><button style="background-color: #198754;"pButton pRipple label="Ekle" icon="pi pi-plus" class="p-button-success p-mr-2" routerLink="/brands/add"></button></th>
+
     </tr>
 </ng-template>
 <ng-template pTemplate="body" let-brand>
@@ -51,7 +52,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
       <td> </td>
       <td> </td>
         <td>
-          <button style="background-color: #198754;margin-right: 10px;"pButton pRipple label="Ekle" icon="pi pi-plus" class="p-button-success p-mr-2" routerLink="/brands/add"></button>
+         
             <button *ngIf="checkToLogin()" style="margin-right:10px;" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" routerLink="/brands/update/{{brand.brandId}}"></button>
             <button *ngIf="checkToLogin()"  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"(click)="deleteBrand(brand)"></button>
         </td>
