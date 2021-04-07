@@ -53,6 +53,6 @@ This project is the frontend part of <a href="https://github.com/cenkerkumlucali
 ## Profil-Edit
 ![Profil-edit](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/profil-edit.png)
 ## Brands-List
-![Brands-list](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brands-list.png)
+![Brands-list](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brands.png)
 ## Brand-Update
 ![Brand-update](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brand-update.png)
