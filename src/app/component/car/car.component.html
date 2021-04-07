@@ -29,7 +29,6 @@
             <h5 class="card-title">{{ car.brandName | uppercase }}</h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Renk: {{ car.colorName }}</li>
             <li class="list-group-item">Model Yılı: {{ car.modelYear }}</li>
             <li class="list-group-item">Fiyat: {{ car.dailyPrice |currency: "TRY":"symbol-narrow":"1.2-2" }}</li>
             <li class="list-group-item">Findeks puanı: {{ car.minFindeksScore }}</li>

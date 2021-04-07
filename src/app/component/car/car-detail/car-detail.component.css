@@ -1,0 +1,12 @@
+.w-100 {
+    width: 82%!important;
+    margin-top: 15px;
+}
+.card{
+    margin-top: 15px;
+}
+
+.col-md-4 {
+    flex: 0 0 auto;
+    width: 33.3333333333%; margin-top: 15px;
+}
