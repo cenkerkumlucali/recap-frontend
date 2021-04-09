@@ -1,77 +1,43 @@
-<!-- <div class="row">
-  <div class="col-md-12" style="text-align:right">
-
-
-  </div>
-  <div class="col-md-12">
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Marka Numarası</th>
-          <th scope="col">Marka Adı</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let brand of brands">
-          <td>{{brand.brandId}}</td>
-          <td>{{brand.brandName}}</td>
-          <td><button *ngIf="checkToLogin()" routerLink="/brands/update/{{brand.brandId}}" class="btn btn-success" style="border-radius: 50px;">Güncelle</button></td>
-          <td><button *ngIf="checkToLogin()" (click)="deleteBrand(brand)" class="btn btn-danger" style="border-radius: 50px;">Delete</button></td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-</div>
- -->
-
-
-<p-table #dt  [rows]="6" [paginator]="true" 
-currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
- [rowHover]="true" dataKey="id"
- [showCurrentPageReport]="true"[value]="brands"> 
-<ng-template pTemplate="header">
+<p-table #dt [rows]="6" [paginator]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowHover]="true" dataKey="id"
+  [showCurrentPageReport]="true" [value]="brands">
+  <ng-template pTemplate="header">
     <tr>
-        <th style="width: 3rem">
-            <p-tableHeaderCheckbox ></p-tableHeaderCheckbox>
-        </th>
-        <th pSortableColumn="name">Markalar <p-sortIcon field="name"></p-sortIcon></th>
-        <th></th>
-        <th></th>
-        <th><button *ngIf="checkToLogin()" style="background-color: #198754;"pButton pRipple label="Ekle" icon="pi pi-plus" class="p-button-success p-mr-2" routerLink="/brands/add"></button></th>
+      <th style="width: 3rem">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pSortableColumn="name">Markalar <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th></th>
+      <th></th>
+      <th><button *ngIf="checkToLogin()" style="background-color: #198754;" pButton pRipple label="Ekle"
+          icon="pi pi-plus" class="p-button-success p-mr-2" routerLink="/brands/add"></button></th>
 
     </tr>
-</ng-template>
-<ng-template pTemplate="body" let-brand>
-    <tr >  
-       <td> </td>
+  </ng-template>
+  <ng-template pTemplate="body" let-brand>
+    <tr>
+      <td> </td>
       <td>{{brand.brandName}}</td>
       <td> </td>
       <td> </td>
-        <td>
-         
-            <button *ngIf="checkToLogin()" style="margin-right:10px;" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" routerLink="/brands/update/{{brand.brandId}}"></button>
-            <button *ngIf="checkToLogin()"  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"(click)="deleteBrand(brand)"></button>
-        </td>
-        
-    </tr>
-</ng-template>
-<ng-template pTemplate="summary">
-  <div class="p-d-flex p-ai-center p-jc-between">
-      Toplamda {{brands ? brands.length : 0 }} marka var.
-  </div>
-</ng-template>
-</p-table>
-<!-- 
-<div *ngFor="let brand of brands">
+      <td>
+        <button *ngIf="checkToLogin()" (click)='setSelectedBrand(brand)' pButton pRipple icon="pi pi-pencil"
+          style="margin-right:10px;" class="p-button-rounded p-button-success" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
 
-<div class="card border-dark mb-3 " style="max-width: 18rem;">
-  <div class="card-header">Marka</div>
-  <div class="card-body text-dark ">
-    <h5 class="card-title">{{brand.brandId}}</h5>
-    <p class="card-text">{{brand.brandName}}</p>
-  </div>
-</div> -->
+        </button>
+
+        <button *ngIf="checkToLogin()" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+          (click)="deleteBrand(brand)"></button>
+      </td>
+
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    <div class="p-d-flex p-ai-center p-jc-between">
+      Toplamda {{brands ? brands.length : 0 }} marka var.
+    </div>
+  </ng-template>
+</p-table>
+<app-brand-update [brandForUpdate]="selectedBrand"></app-brand-update>
