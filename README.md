@@ -37,7 +37,7 @@ This project is the frontend part of <a href="https://github.com/cenkerkumlucali
 ## Home 
 ![Home](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/home.png)
 ## Cars 
-![Cars](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/cars.png)
+![Cars](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/car-list.png)
 ## Login
 ![Login](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/login.png)
 ## Register
