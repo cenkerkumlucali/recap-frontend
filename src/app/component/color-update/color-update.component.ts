@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Color } from 'src/app/models/color';
+import { AuthService } from 'src/app/services/auth.service';
 import { ColorService } from 'src/app/services/colors.service';
 
 @Component({
@@ -12,20 +13,18 @@ import { ColorService } from 'src/app/services/colors.service';
 })
 export class ColorUpdateComponent implements OnInit {
  color:Color
-  colorUpdateForm:FormGroup
+colorUpdateForm:FormGroup
+@Input() colorForUpdate:Color
   constructor(private colorService:ColorService,
     private toastrService:ToastrService,
     private activatedRoute:ActivatedRoute,
-    private formBuilder:FormBuilder) { }
+    private formBuilder:FormBuilder,
+    private authService:AuthService) { }
  
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      if(params["colorId"]){
-        this.getColorById(params["colorId"]);
         this.createColorUpdateForm();
-      }
-    });
+      
   }
 getColorById(colorId:number){
   this.colorService.getColorById(colorId).subscribe((response)=>{
@@ -34,14 +33,15 @@ getColorById(colorId:number){
 }
 createColorUpdateForm(){
   this.colorUpdateForm=this.formBuilder.group({
-    colorId:["",Validators.required],
-    colorName:["",Validators.required]
+
+    colorName:[this.colorForUpdate?this.colorForUpdate.colorName:"",Validators.required]
   })
 }
 updateColor(){
-  this.colorUpdateForm.patchValue({colorId:this.color.colorId})
   if(this.colorUpdateForm.valid){
     let colorModel = Object.assign({},this.colorUpdateForm.value)
+    colorModel.colorId=this.colorForUpdate.colorId
+    
     this.colorService.update(colorModel).subscribe((response)=>{
       this.toastrService.success(response.message,"Başarılı")
     },responseError =>{
@@ -55,6 +55,13 @@ updateColor(){
   }
   else {
     this.toastrService.error("Form bilgisi hatalı","Tekrar kontrol ediniz")
+  }
+} 
+checkToLogin(){
+  if(this.authService.isAuthenticated()){
+    return  true;
+  }else{
+    return false;
   }
 }
 

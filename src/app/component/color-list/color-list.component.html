@@ -51,8 +51,7 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
       <td> </td>
       <td> </td>
         <td>
-           
-            <button *ngIf="checkToLogin()" style="margin-right:10px;" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" routerLink="/colors/update/{{color.colorId}}"></button>
+           <app-color-update [colorForUpdate]=color></app-color-update>
             <button *ngIf="checkToLogin()"  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"(click)="deleteColor(color)"></button>
         </td>
         

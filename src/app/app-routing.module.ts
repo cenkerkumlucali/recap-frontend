@@ -41,9 +41,8 @@ const routes: Routes = [
 
   {path:"cars/update/:carId", component:CarUpdateComponent},
 
-  {path:"brands/update/:brandId", component:BrandUpdateComponent,canActivate:[LoginGuard]},
 
-  {path:"colors/update/:colorId", component:ColorUpdateComponent,canActivate:[LoginGuard]},
+
 
   {path:"brands/add", component:BrandAddComponent,canActivate:[LoginGuard]},
 

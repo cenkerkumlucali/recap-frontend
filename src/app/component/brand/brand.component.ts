@@ -16,16 +16,17 @@ export class BrandComponent implements OnInit {
               private authService:AuthService) {}
  
   brands: Brand[];
-  brand : Brand
+  selectedBrand:Brand=null
+
   dataLoaded = false;
   ngOnInit(): void {
     this.getBrands();
+
   }
 
   getBrands(): void {
     this.brandService.getBrand().subscribe((response) => {
       this.brands = response.data;
-      this.brand=response.data[0]
       this.dataLoaded = true;
       
     });
@@ -33,6 +34,7 @@ export class BrandComponent implements OnInit {
   deleteBrand(brand:Brand){
     this.brandService.delete(brand).subscribe((response=>{
       this.toastrService.success("Araç ismi silindi")
+    
       setTimeout(function(){
         location.reload()
       },400)
@@ -51,5 +53,9 @@ export class BrandComponent implements OnInit {
     }else{
       return false
     }
+  }
+
+  setSelectedBrand(brand:Brand){
+    this.selectedBrand = brand
   }
 }

@@ -36,6 +36,7 @@ export class CarUpdateComponent implements OnInit {
     this.createCarUpdateForm();
     this.getBrands()
     this.getColors()
+    
   }
   
   createCarUpdateForm() { 

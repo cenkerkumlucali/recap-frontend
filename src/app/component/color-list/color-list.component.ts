@@ -11,6 +11,7 @@ import { ColorService } from 'src/app/services/colors.service';
 })
 export class ColorListComponent implements OnInit {
  colors:Color[]
+ color:Color
  isAuthenticated :boolean
   constructor(private colorService:ColorService,
     private toastrService:ToastrService,
