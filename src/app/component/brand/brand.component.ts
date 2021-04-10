@@ -51,7 +51,9 @@ export class BrandComponent implements OnInit {
     this.brandService.delete(brand).subscribe((response=>{
       this.toastrService.success(response.message)
     console.log(response)
-  
+      setTimeout(function(){
+        location.reload()
+      },200)
     }),errorResponse=>{
       if(errorResponse.error.error.length>0){
         for (let i = 0; i < errorResponse.error.error.length; i++) {

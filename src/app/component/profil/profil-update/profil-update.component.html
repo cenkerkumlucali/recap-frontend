@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <div class="card">
+      <div class="card mt-4">
         <div class="card-header"><h5 class="card-title">Üyelik Bilgileriniz</h5></div>
         <div class="card-body">
   
@@ -41,15 +41,15 @@
               </div>
             </div>
             <div class="card-footer">
-              <button class="btn btn-outline-primary" (click)="updateProfile()" >Güncelle</button>
+              <button class="btn btn-outline-success" (click)="updateProfile()" >Güncelle</button>
             </div>
           </form>
         </div>
         
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="card">
+    <div class="col-md-5">
+      <div class="card mt-4">
       <div class="card-header"><h5 class="card-title">Şirket Bilgileriniz</h5></div>
       <div >
         <p-card>
@@ -68,7 +68,7 @@
               </div>
               
               <div class="card-footer">
-                <button class="btn btn-outline-primary" (click)="updateCustomer()" >Güncelle</button>
+                <button class="btn btn-outline-success" (click)="updateCustomer()" >Güncelle</button>
               </div>
               
               <!-- <div class="p-field p-md-2 p-grid" style="margin-top: 5px;">
@@ -79,23 +79,25 @@
               </div> -->
               
             </form>
-            <div *ngIf="customer">
-              <p-card>
-                <div class="col-md-12">
-                    <div class="d-flex justify-content-center">
-                        <span class="form-control">
-                          <label for="input-tel">Findeks Puanı</label>
-                            <input type="text" style="width:95%" disabled [(ngModel)]="customer.findeksScore" id="disabled-findeks" pInputText>
-                            
-                        </span>
-                    </div>
-                </div>
-              </p-card>
-            </div>
             
           </div>
         </p-card>
       </div>
+    </div>
+    <div *ngIf="customer">
+      <p-card>
+        <div class="col-md-12">
+          <div class="card mt-2">
+            <div class="d-flex justify-content-center">
+                <span class="form-control">
+                  <label for="input-tel">Findeks Puanı</label>
+                    <input type="text" style="width:95%" disabled [(ngModel)]="customer.findeksScore" id="disabled-findeks" pInputText>
+                    
+                </span>
+            </div>
+        </div>
+      </div>
+      </p-card>
     </div>
   </div>
     </div>
