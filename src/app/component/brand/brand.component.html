@@ -30,8 +30,8 @@
 
         </button>
 
-        <button *ngIf="checkToLogin()" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-          (click)="deleteBrand(brand)"></button>
+        <button *ngIf="checkToLogin()" holdable (holdTime)="holdHandler($event,brand)"pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+
       </td>
 
     </tr>

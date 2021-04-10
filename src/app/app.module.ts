@@ -55,6 +55,8 @@ import { ProfilComponent } from './component/profil/profil.component';
 import { ProfilUpdateComponent } from './component/profil/profil-update/profil-update.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './component/home/home.component';
+import { HoldableDirective } from './directives/holdable.directive';
+
 
 
 @NgModule({
@@ -88,6 +90,8 @@ import { HomeComponent } from './component/home/home.component';
     ProfilUpdateComponent,
     FooterComponent,
     HomeComponent,
+    HoldableDirective
+
     
     
 

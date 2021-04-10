@@ -20,7 +20,11 @@ export class BrandComponent implements OnInit {
  
   brands: Brand[];
   selectedBrand:Brand=null
-
+  progress = 0;
+  deleteBrands = {
+    brandId:0,
+    progress:0
+  }
   dataLoaded = false;
   ngOnInit(): void {
     this.getBrands();
@@ -34,13 +38,20 @@ export class BrandComponent implements OnInit {
       
     });
   }
+  holdHandler(e: number, brand: Brand) {
+    this.deleteBrands.brandId = brand.brandId;
+    this.deleteBrands.progress = e / 10;
+
+    if (e / 10 > 100) {
+      this.deleteBrand(brand);
+    }
+  }
+
   deleteBrand(brand:Brand){
     this.brandService.delete(brand).subscribe((response=>{
-      this.toastrService.success("Araç ismi silindi")
-    
-      setTimeout(function(){
-        location.reload()
-      },400)
+      this.toastrService.success(response.message)
+    console.log(response)
+  
     }),errorResponse=>{
       if(errorResponse.error.error.length>0){
         for (let i = 0; i < errorResponse.error.error.length; i++) {
@@ -50,6 +61,7 @@ export class BrandComponent implements OnInit {
       }
     })
   }
+  
   checkToLogin(){
     if(this.authService.isAuthenticated()){
       return true
@@ -68,4 +80,5 @@ export class BrandComponent implements OnInit {
   setSelectedBrand(brand:Brand){
     this.selectedBrand = brand
   }
+ 
 }
