@@ -1,7 +1,6 @@
 
 <!-- Button trigger modal -->
 
-<button *ngIf="checkToLogin()"  pButton pRipple icon="pi pi-pencil"style="margin-right:10px;" class="p-button-rounded p-button-success"data-bs-toggle="modal"data-bs-target="#exampleModal"></button>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -15,9 +14,9 @@
           <form [formGroup]="colorUpdateForm" >
             <div class="mb-3" >
               <div class="mb-3" >
-                <label for="colorName">Marka adı</label>
+                <label for="colorName">Renk adı</label>
                 <input type="text" id="colorName" formControlName="colorName"
-                       class="form-control" placeholder="{{colorForUpdate.colorName}}">
+                       class="form-control">
               </div>
             </div>
           </form>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl,Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 import { BrandService } from 'src/app/services/brand.service';
 
 
@@ -13,7 +14,8 @@ export class BrandAddComponent implements OnInit {
   brandAddForm:FormGroup
   constructor(private formBuilder:FormBuilder,
     private toastrService:ToastrService,
-    private brandService:BrandService) { }
+    private brandService:BrandService,
+    private authService:AuthService) { }
 
   ngOnInit(): void {
     this.createBrandAddForm()
@@ -42,6 +44,13 @@ export class BrandAddComponent implements OnInit {
         })
       }else{
         this.toastrService.error("Formunuz eksik","Dikkat")
+      }
+    }
+    checkToLogin(){
+      if(this.authService.isAuthenticated()){
+        return true
+      }else{
+        return false
       }
     }
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { DialogService } from 'primeng/dynamicdialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { Brand } from '../../models/brand';
 import { BrandService } from '../../services/brand.service';
+import { BrandAddComponent } from '../brand-add/brand-add.component';
 
 @Component({
   selector: 'app-brand',
@@ -13,7 +15,8 @@ import { BrandService } from '../../services/brand.service';
 export class BrandComponent implements OnInit {
   constructor(private toastrService:ToastrService,
               private brandService: BrandService,
-              private authService:AuthService) {}
+              private authService:AuthService,
+              private dialogService:DialogService) {}
  
   brands: Brand[];
   selectedBrand:Brand=null
@@ -53,6 +56,13 @@ export class BrandComponent implements OnInit {
     }else{
       return false
     }
+  }
+  add() {
+    const ref = this.dialogService.open(BrandAddComponent, {
+        header: 'Marka ekle',
+        width: '45%',
+  
+    });
   }
 
   setSelectedBrand(brand:Brand){

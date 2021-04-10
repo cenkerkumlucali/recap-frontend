@@ -13,7 +13,12 @@ import { ColorService } from 'src/app/services/colors.service';
 })
 export class ColorUpdateComponent implements OnInit {
  color:Color
+ currentColor:Color = {
+   colorId:0,
+   colorName:""
+ }
 colorUpdateForm:FormGroup
+
 @Input() colorForUpdate:Color
   constructor(private colorService:ColorService,
     private toastrService:ToastrService,
@@ -26,16 +31,21 @@ colorUpdateForm:FormGroup
         this.createColorUpdateForm();
       
   }
-getColorById(colorId:number){
-  this.colorService.getColorById(colorId).subscribe((response)=>{
-    this.color=response.data
-  })
-}
+
 createColorUpdateForm(){
   this.colorUpdateForm=this.formBuilder.group({
 
     colorName:[this.colorForUpdate?this.colorForUpdate.colorName:"",Validators.required]
   })
+}
+ngDoCheck(){
+  if(this.colorForUpdate?.colorName !== this.currentColor?.colorName){
+    console.log(this.colorForUpdate)
+    this.currentColor.colorName = this.colorForUpdate?.colorName
+    this.colorUpdateForm.patchValue({
+      colorName:this.currentColor?.colorName
+    })
+  }
 }
 updateColor(){
   if(this.colorUpdateForm.valid){

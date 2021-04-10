@@ -10,8 +10,10 @@
       </th>
       <th></th>
       <th></th>
-      <th><button *ngIf="checkToLogin()" style="background-color: #198754;" pButton pRipple label="Ekle"
-          icon="pi pi-plus" class="p-button-success p-mr-2" routerLink="/brands/add"></button></th>
+      <th>
+        <button  (click)="add()"*ngIf="checkToLogin()" style="background-color: #198754;" pButton pRipple label="Ekle"
+        icon="pi pi-plus" class="p-button-success p-mr-2" ></button>
+      </th>
 
     </tr>
   </ng-template>

@@ -62,6 +62,7 @@ export class BrandUpdateComponent implements OnInit {
       this.brandService.update(brandModel).subscribe(
         response => {
         this.toastrService.success(response.message,"Başarılı")
+        setTimeout(()=>{window.location.reload},1500)
         },
         responseError => {
         if(responseError.error.ValidationErrors.length > 0) {
