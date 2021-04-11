@@ -4,13 +4,13 @@
   <div class="row justify-content-md-center">
     <div class="col-md-12">
       <div class="p-fluid p-formgrid p-grid">
-        <!-- <div class="icons"> -->
-          <!-- <img src="https://img.icons8.com/color/48/000000/visa.png" />
+         <div class="icons"> 
+           <img src="https://img.icons8.com/color/48/000000/visa.png" />
           <img
                 src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
                 />
-              <img src="https://img.icons8.com/color/48/000000/maestro.png" /> -->
-            <!-- </div> -->
+              <img src="https://img.icons8.com/color/48/000000/maestro.png" /> 
+            < </div> 
             <form [formGroup]="creditCardForm"> 
               <div *ngIf="savedCards.length>0" class="mb-3" style="    width: 100%;">
                 <p-dropdown id="savedCards" [disabled]=false (onChange)="setCardInfos()" formControlName="savedCards" [options]="savedCards" [(ngModel)]="selectedCard" placeholder="Kayıtlı kartlar" optionLabel="nameOnTheCard" [showClear]="true"></p-dropdown>

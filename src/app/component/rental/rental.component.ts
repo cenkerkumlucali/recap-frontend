@@ -90,7 +90,12 @@ export class RentalComponent implements OnInit {
   }
 
   async setRentable(){
-    this.rental = {carId:this.car.carId,rentStartDate:this.startDate,rentEndDate:this.endDate,totalRentPrice:this.calculatePrice()};
+    this.rental = {
+      carId:this.car.carId,
+      rentStartDate:this.startDate,
+      rentEndDate:this.endDate,
+      totalRentPrice:this.calculatePrice()
+    };
     return (await this.rentalService.isRentable(this.rental).toPromise()).success
   }
 

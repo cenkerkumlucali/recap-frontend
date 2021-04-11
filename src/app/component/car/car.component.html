@@ -15,7 +15,7 @@
       <div style="width: 91%;" class="mb-3">
         <label for="filterText" class="form-label"></label>
         <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
-          placeholder="Araç ismi giriniz" />
+          placeholder="Araç marka veya renk ismi giriniz" />
       </div>
 
       <div *ngIf="filterText" class="alert alert-success">
@@ -29,6 +29,7 @@
             <h5 class="card-title">{{ car.brandName | uppercase }}</h5>
           </div>
           <ul class="list-group list-group-flush">
+            <li class="list-group-item">Renk: {{ car.colorName }}</li>
             <li class="list-group-item">Model Yılı: {{ car.modelYear }}</li>
             <li class="list-group-item">Fiyat: {{ car.dailyPrice |currency: "TRY":"symbol-narrow":"1.2-2" }}</li>
             <li class="list-group-item">Findeks puanı: {{ car.minFindeksScore }}</li>
