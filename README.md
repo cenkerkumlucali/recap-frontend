@@ -55,4 +55,4 @@ This project is the frontend part of <a href="https://github.com/cenkerkumlucali
 ## Brands-List
 ![Brands-list](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brands.png)
 ## Brand-Update
-![Brand-update](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brand-update.png)
+![Brand-update](https://github.com/cenkerkumlucali/RecapProject-Frontend/blob/master/src/images/brands-updated.png)
