@@ -7,6 +7,7 @@ import { TokenModel } from '../models/tokenModel';
 import { JwtHelperService} from "@auth0/angular-jwt";
 import { LocalStorageService } from './local-storage.service';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -15,18 +16,18 @@ import { Observable } from 'rxjs';
 export class AuthService {
   currentUserId: number;
   jwtHelperService:JwtHelperService = new JwtHelperService();
-  apiUrl='https://localhost:44333/api/'
+  apiUrl = environment.baseUrl;
 
   constructor(private httpClient:HttpClient,
     private storageService:LocalStorageService,
    ) {this.setUserStats() }
 
   login(loginModel:LoginModel):Observable<SingleResponseModel<TokenModel>>{
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + 'auth/login',loginModel);
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + '/auth/login',loginModel);
   }
 
   register(registerModel:RegisterModel):Observable<SingleResponseModel<TokenModel>>{
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + 'auth/register',registerModel);
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + '/auth/register',registerModel);
   }
 
   isAuthenticated(){

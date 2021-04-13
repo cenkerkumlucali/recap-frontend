@@ -56,6 +56,7 @@ import { ProfilUpdateComponent } from './component/profil/profil-update/profil-u
 import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './component/home/home.component';
 import { HoldableDirective } from './directives/holdable.directive';
+import { RentalDetailsComponent } from './component/rental/rentalDetails/rental-details/rental-details.component';
 
 
 
@@ -90,7 +91,8 @@ import { HoldableDirective } from './directives/holdable.directive';
     ProfilUpdateComponent,
     FooterComponent,
     HomeComponent,
-    HoldableDirective
+    HoldableDirective,
+    RentalDetailsComponent
 
     
     

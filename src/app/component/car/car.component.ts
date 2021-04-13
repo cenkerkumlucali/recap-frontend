@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 export class CarComponent implements OnInit {
   cars: CarDetail[] = [];
   dataLoaded = false;
-  imageBasePath = environment.baseUrl;
+  imageBasePath = environment.imageUrl;
   filterText=""
   defaultImg="/images/default.jpg"
 

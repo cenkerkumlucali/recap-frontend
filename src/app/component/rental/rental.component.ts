@@ -27,7 +27,7 @@ export class RentalComponent implements OnInit {
   rentPrice:number = 0;
   rental:Rental;
   rentable:Boolean = false;
-  imageBasePath = environment.baseUrl;
+  imageBasePath = environment.imageUrl;
   defaultImg="/images/default.jpg"
   minDate:string|null;
   endMinDate:string|null;

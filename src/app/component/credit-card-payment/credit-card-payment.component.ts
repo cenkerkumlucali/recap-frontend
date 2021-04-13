@@ -48,6 +48,7 @@ export class CreditCardPaymentComponent implements OnInit {
     this.getRental()
     this.setCreditCardForm();
     this.getSavedCards()
+    console.log(this.payment)
     
   }
   getRental(){

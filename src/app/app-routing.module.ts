@@ -19,6 +19,7 @@ import { LoginGuard } from './guard/login.guard';
 import { RegisterComponent } from './component/register/register.component';
 import { ProfilUpdateComponent } from './component/profil/profil-update/profil-update.component';
 import { HomeComponent } from './component/home/home.component';
+import { RentalDetailsComponent } from './component/rental/rentalDetails/rental-details/rental-details.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,8 @@ const routes: Routes = [
   {path:"brands",component:BrandComponent},
 
   {path:"colors",component:ColorListComponent},
+
+  {path:"rentals",component:RentalDetailsComponent},
 
   {path:"login",component:LoginComponent},
 

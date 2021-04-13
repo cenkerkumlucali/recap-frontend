@@ -1,0 +1,34 @@
+<p-table #dt [rows]="6" [paginator]="true"
+   [rowHover]="true" dataKey="id"
+  [showCurrentPageReport]="true" [value]="rentals">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pSortableColumn="name">Araç ismi <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      
+      <th>Müşteri ismi</th>
+      <th>Kiralama başlangıç tarihi</th>
+      <th>Kiralama bitiş tarihi</th>
+     
+
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rental>
+    <tr>
+      <td> </td>
+      <td>{{rental.carName}}</td>
+      <td>{{rental.customerFullName}} </td>
+      <td> {{rental.rentDate}} </td>
+      <td>{{rental.returnDate}} </td>
+
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    <div class="p-d-flex p-ai-center p-jc-between">
+      Toplamda {{rentals ? rentals.length : 0 }} kiralama var.
+    </div>
+  </ng-template>
+</p-table>
