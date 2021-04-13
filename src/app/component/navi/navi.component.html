@@ -60,45 +60,13 @@
         <li><a routerLink="brands" class="nav-link px-2 text-white">Markalar</a></li>
         <li><a routerLink="colors" class="nav-link px-2 text-white">Renkler</a></li>
         <li><a routerLink="rentals" class="nav-link px-2 text-white">Kiralamalar</a></li>
-
-        <!-- <li class="nav-item dropdown active">
-          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Araba işlemleri
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" routerLink="cars" >Arabalar</a></li>
-            <li><a class="dropdown-item" routerLink="cars/add" >Araba ekle</a></li>
-          </ul>
-        </li>  
-
-        <li class="nav-item dropdown active">
-          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Marka işlemleri
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" routerLink="brands" >Markalar</a></li>
-            <li><a class="dropdown-item" routerLink="brands/add" >Marka ekle</a></li>
-          </ul>
-        </li>  
-        <li class="nav-item dropdown active">
-          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Renk işlemleri
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" routerLink="colors" >Renkler</a></li>
-            <li><a class="dropdown-item" routerLink="colors/add" >Renk ekle</a></li>
-          </ul>
-        </li>  -->
-
       </ul>
 
       <div class="text-end" *ngIf="checkToLogin()==false">
-        <button routerLink="login" type="button" class="btn btn-success" style="margin-right: 10px;    background-color: #12a661;
-            border-color: #084e2d;">
+        <button id="login"routerLink="login" type="button" class="btn btn-success" >
           Giriş yap
         </button>
-        <button routerLink="register" type="button" class="btn btn-success" style="    background-color: #12a661;
-            border-color: #084e2d;">
+        <button routerLink="register" type="button" class="btn btn-success">
           Kayıt ol
         </button>
       </div>

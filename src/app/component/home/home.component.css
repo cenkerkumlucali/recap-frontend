@@ -1,0 +1,19 @@
+.btn.btn-success{
+width: 150px;
+height: 50px;
+}
+div#icon{
+    margin-top: 15px;
+}
+svg{
+    color: #198754;
+}
+path#icon{
+    color: #198754;
+}
+div#clock{
+    margin-top: 15px;
+}
+#hood{
+    font-size: 2rem;
+}

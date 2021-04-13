@@ -1,3 +1,10 @@
 .text-white {
     color: rgb(255, 255, 255)!important;
 }
+button{
+    background-color: #12a661;
+    border-color: #084e2d;
+}
+#login{
+    margin-right: 10px;
+}

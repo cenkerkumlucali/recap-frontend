@@ -1,7 +1,20 @@
+button#rentalButton{
+  margin-top: -64px;
+  margin-left: 122px;
+  width: 80px;
+}
+h4{
+  margin-left: 37%;
+  margin-top: 10px;
+  margin-bottom: -10px;
+ 
+}
+
 .card {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    width: 19rem;
   }
   
   /* On mouse-over, add a deeper shadow */
@@ -34,7 +47,6 @@
   
    
   }
-  
   .car-model {
     font-size: 20px;
     font-weight: bold;
@@ -44,4 +56,6 @@
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
     margin-top: 10px;
-}
+} 
+
+

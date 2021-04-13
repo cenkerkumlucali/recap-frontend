@@ -10,3 +10,13 @@
     flex: 0 0 auto;
     width: 33.3333333333%; margin-top: 15px;
 }
+section{
+    float: right;
+}
+button#rentalButton{
+    width: 120px;
+    margin-right: 10px;
+    margin-top: 21px;
+
+}
+

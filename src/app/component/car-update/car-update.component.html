@@ -1,7 +1,7 @@
 
 <!-- Button trigger modal -->
 
-<button *ngIf="checkToLogin()"  style="margin-top: 22px;width: 120px;" type="button" class=" btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button *ngIf="checkToLogin()" id="inputButton"  type="button" class=" btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Güncelle
 </button>
 
@@ -10,10 +10,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style="    margin-left: 180px;">Güncelle</h5>
+        <h5 class="modal-title" id="exampleModalLabel" >Güncelle</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" style="color:black">
+      <div class="modal-body" >
         <div class="card-body">
           <form [formGroup]="carUpdateForm">
             <div class="mb-3">

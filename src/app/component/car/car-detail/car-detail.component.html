@@ -41,10 +41,8 @@
           <li class="list-group-item">Findeks puanı: {{ carDto.minFindeksScore }}</li>
           <li class="list-group-item">Açıklama: {{carDto.description}}</li>
         </ul>
-        <section style="float: right">   
-          
-          <button *ngIf="carDto" routerLink = "/rental/{{carDto.carId}}" type="button"style=" width: 120px;
-          margin-right: 10px;   margin-top: 21px;width: 120px; " 
+        <section > 
+          <button *ngIf="carDto" routerLink = "/rental/{{carDto.carId}}" id="rentalButton"type="button"
           class="btn btn-outline-success">Kirala</button>
           <app-car-update *ngIf="carDto"  [carForUpdate]="carDto"></app-car-update>
         </section>

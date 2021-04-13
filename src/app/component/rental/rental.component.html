@@ -12,7 +12,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ car.brandName | uppercase }}</h5>
           </div>
-          <ul style="margin-bottom: -128px;" class="list-group list-group-flush">
+          <ul class="list-group list-group-flush">
             <li class="list-group-item">Renk: {{ car.colorName }}</li>
             <li class="list-group-item">Model Yılı: {{ car.modelYear }}</li>
             <li class="list-group-item">Fiyat: {{ car.dailyPrice |currency: "TRY":"symbol-narrow":"1.2-2" }}</li>
@@ -30,11 +30,11 @@
                             
                                   <input [value]="car.dailyPrice | currency" disabled="disabled" type="text" class="form-control" id="daily-price" >
                               </div>
-                              <div class="mb-3" style="width: 25rem;">
+                              <div id="date" class="mb-3" >
                                   <label for="rent-date" class="form-label">Başlangıç:</label>
                                   <input  min="{{minDate}}" (change)="controlEndDate()" [(ngModel)]="startDate" name="startDate" type="date" class="form-control" id="rent-start-date" >
                               </div>
-                              <div class="mb-3" style="width: 25rem;">
+                              <div id="date"class="mb-3">
                                   <label for="return-date" class="form-label">Bitiş:</label>
                                   <input [disabled]='!startDate' min="{{startDate}}" max="{{maxDate}}" [(ngModel)]="endDate" name="endDate" (change)="setRentable()" type="date" class="form-control" id="rent-end-date" >
                               </div>

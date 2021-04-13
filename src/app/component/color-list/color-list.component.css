@@ -1,0 +1,9 @@
+button#add{
+    background-color: #198754;
+}
+button#update{
+    margin-right: 10px;
+}
+th#first{
+    width: 3rem;
+}

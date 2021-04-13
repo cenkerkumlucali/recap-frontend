@@ -1,36 +1,39 @@
- <p-table #dt  [rows]="6" [paginator]="true" 
-
- [rowHover]="true" dataKey="id"
- [showCurrentPageReport]="true"[value]="colors"> 
-<ng-template pTemplate="header">
+<p-table #dt [rows]="6" [paginator]="true" [rowHover]="true" dataKey="id" [showCurrentPageReport]="true"
+  [value]="colors">
+  <ng-template pTemplate="header">
     <tr>
-        <th style="width: 3rem">
-            <p-tableHeaderCheckbox ></p-tableHeaderCheckbox>
-        </th>
-        <th pSortableColumn="name">Renkler <p-sortIcon field="name"></p-sortIcon></th>
-        <th></th>
-        <th></th>
-        <th> <button (click)="add()" *ngIf="checkToLogin()" style="background-color: #198754;"pButton pRipple label="Ekle" icon="pi pi-plus" class="p-button-success p-mr-2"></button></th>
+      <th id="first">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pSortableColumn="name">Renkler <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th></th>
+      <th></th>
+      <th> <button id="add"(click)="add()" *ngIf="checkToLogin()" pButton pRipple
+          label="Ekle" icon="pi pi-plus" class="p-button-success p-mr-2"></button></th>
     </tr>
-</ng-template>
-<ng-template pTemplate="body" let-color>
-    <tr >  
-       <td> </td>
+  </ng-template>
+  <ng-template pTemplate="body" let-color>
+    <tr>
+      <td> </td>
       <td>{{color.colorName}}</td>
       <td> </td>
       <td> </td>
-        <td>
-          <button *ngIf="checkToLogin()" (click)="setSelectedColor(color)"  pButton pRipple icon="pi pi-pencil"style="margin-right:10px;" class="p-button-rounded p-button-success"data-bs-toggle="modal"data-bs-target="#exampleModal"></button>
+      <td>
+        <button id="update" *ngIf="checkToLogin()" (click)="setSelectedColor(color)" pButton pRipple icon="pi pi-pencil"
+         class="p-button-rounded p-button-success" data-bs-toggle="modal"
+          data-bs-target="#exampleModal"></button>
 
-          <button *ngIf="checkToLogin()"  pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"(click)="deleteColor(color)"></button>
-        </td>
-        
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="summary">
-      <div class="p-d-flex p-ai-center p-jc-between">
-        Toplamda {{colors ? colors.length : 0 }} renk var.
-      </div>
-    </ng-template>
-  </p-table>
-  <app-color-update [colorForUpdate]=selectedColor></app-color-update>
+        <button *ngIf="checkToLogin()" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+          (click)="deleteColor(color)"></button>
+      </td>
+
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    <div class="p-d-flex p-ai-center p-jc-between">
+      Toplamda {{colors ? colors.length : 0 }} renk var.
+    </div>
+  </ng-template>
+</p-table>
+<app-color-update [colorForUpdate]=selectedColor></app-color-update>
