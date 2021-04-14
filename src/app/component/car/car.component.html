@@ -1,14 +1,42 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <app-brand-category></app-brand-category>
-      <app-color></app-color>
-    </div>
-    <div class="col-md-9">
-      <h4>ARABALAR</h4>
       <div *ngIf="dataLoaded == false" class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
+      <label class="mr-sm-2" for="inlineFormCustomSelect" style="font-weight: 500; margin-left: 10px">
+        Markalar
+      </label>
+
+
+
+      <select class="form-control mb-3" [(ngModel)]="brandId" style="margin-left: 10px; width: 90%">
+        <option selected>Tüm markalar</option>
+        <option [value]="brand.brandId" *ngFor="let brand of brands | filterBrandPipe:filterBrandText"
+          [selected]="getSelectedBrandId(brand.brandId)">
+          {{ brand.brandName }}
+        </option>
+      </select>
+      <label class="mr-sm-2" for="inlineFormCustomSelect" style="font-weight: 500; margin-left: 10px">
+        Renkler
+      </label>
+
+      <select class="form-control mb-3" [(ngModel)]="colorId" placeholder="Tüm renkler"
+        style="margin-left: 10px; width: 90%">
+        <option selected>Tüm renkler</option>
+        <option *ngFor="let color of colors |filterColorPipe:filterColorText" [value]="color.colorId"
+          [selected]="getSelectedColorId(color.colorId)">
+          {{ color.colorName }}
+        </option>
+      </select>
+      <div class="col-md-6" style="justify-content: flex-end;">
+        <button id="filter"class="btn" (click)="getFilteredCars(brandId, colorId)">
+          Filtrele
+        </button>
+      </div>
+      
+    </div>
+    <div class="col-md-9">
 
       <div style="width: 91%;" class="mb-3">
         <label for="filterText" class="form-label"></label>
@@ -20,7 +48,7 @@
         {{ filterText }} aradınız.
       </div>
       <div class="row" *ngIf="dataLoaded == true">
-        <div *ngFor="let car of cars | carfilterPipe: filterText" class="card" >
+        <div *ngFor="let car of cars | carfilterPipe: filterText" class="card">
           <img [src]="car.images.length !== 0 ? imageBasePath+ car.images[0] : imageBasePath + defaultImg"
             class="card-img-top" alt="{{ car.description }} Image" width="100%" height="100%" />
           <div class="card-body">

@@ -1,33 +1,4 @@
-<div style="margin-top: 58px" class="mb-3">
-  <input
-    type="text"
-    [(ngModel)]="filterBrandText"
-    class="form-control"
-    id="filterBrandText"
-    placeholder="Marka giriniz"
-  />
-</div>
-<select
-  class="form-select"
-  [(ngModel)]="currentBrand"
-  #brandSelection
-  (change)="setQueryParams(currentBrand)"
-  aria-label="Default select example"
->
-  <option [selected]="isAllBrandSelected()" [ngValue]="undefined">
-    Tüm markalar
-  </option>
-
-  <option
-    [selected]="isCurrentBrand(brand)"
-    *ngFor="let brand of brands | filterBrandPipe: filterBrandText; index as i"
-    [ngValue]="brand"
-  >
-    {{ brand.brandName }}
-  </option>
-</select>
-
-<!-- <div *ngIf="dataLoaded == false" class="text-center">
+<div *ngIf="dataLoaded == false" class="text-center">
   <div class="spinner-border text-dark" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
@@ -37,29 +8,10 @@
   routerLink="/cars" 
   [ngClass]="getAllBrandClass()" 
   aria-current="true">Tüm markalar</li>
-  <div class="mb-3">
-  <label for="filterBrandText" class="form-label"></label>
-  <input type="text" [(ngModel)]="filterBrandText" class="form-control" id="filterBrandText" placeholder="Marka ismi giriniz">
-</div>
-  
-
 
   <li 
-  
   routerLink="/cars/brand/{{brand.brandId}}"
-  (click)="setCurrentBrand(brand)"  *ngFor="let brand of brands |filterBrandPipe:filterBrandText" [ngClass]="getCurrentBrandClass(brand)">
+  (click)="setCurrentBrand(brand)" *ngFor="let brand of brands" [ngClass]="getCurrentBrandClass(brand)">
     {{brand.brandName}}
   </li>
-
 </ul>
- -->
-
-<!-- <div >
-  <select class="form-select" aria-label="Default select example">
-  <option 
-  [ngClass]="getCurrentBrandClass(brand)"  (click)="setCurrentBrand(brand)"  routerLink="/cars/brand/{{brand.brandId}}"
-  *ngFor="let brand of brands |filterBrandPipe:filterBrandText"  selected>{{brand.brandName}}
-</option>
-</select>
-</div>
-<button type="button" class="btn btn-primary">Filtrele</button> -->

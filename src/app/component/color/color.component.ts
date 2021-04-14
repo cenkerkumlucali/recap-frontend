@@ -22,17 +22,21 @@ export class ColorComponent implements OnInit {
   ngOnInit(): void {
     this.getColors();
   }
-
-  setCurrentColor() {
-    this.router.navigate([], { queryParams: { colorId: this.currentColor.colorId}, queryParamsHandling: 'merge', relativeTo: this.route});
-    
+  setCurrentColor(color:Color){
+    this.currentColor = color;
   }
-
-  setQueryParams(color:Color){
-    if(color){
-      this.setCurrentColor()
-    }else{
-      this.clearCurrentColor()
+  getCurrentColorClass(color:Color){
+    if(  color==this.currentColor){
+      return "list-group-item active";
+    } else {
+      return "list-group-item"
+    }
+  }
+  getAllColorClass(){
+    if(!this.currentColor){
+      return "list-group-item active";
+    } else {
+      return "list-group-item"
     }
   }
 
@@ -59,9 +63,6 @@ export class ColorComponent implements OnInit {
     }
   }
 
-  clearCurrentColor(){
-    this.currentColor = undefined;
-    this.router.navigate([], { queryParams: { colorId: undefined}, queryParamsHandling: 'merge', relativeTo: this.route});
-  }
+ 
 
 }

@@ -3,6 +3,13 @@ button#rentalButton{
   margin-left: 122px;
   width: 80px;
 }
+button#filter{
+  margin-left: 10px;
+  width: 230px;
+  background-color: #198754;
+  color: white;
+}
+
 h4{
   margin-left: 37%;
   margin-top: 10px;

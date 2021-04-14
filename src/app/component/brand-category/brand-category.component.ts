@@ -29,19 +29,24 @@ export class BrandCategoryComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
-
-  setQueryParams(brand:Brand){
-    if(brand){
-      this.setCurrentBrand()
+  getCurrentBrandClass(brand: Brand) {
+    if (brand == this.currentBrand) {
+      return "list-group-item active"
     }else{
-      this.clearCurrentBrand()
+      return "list-group-item "
     }
   }
-
-  setCurrentBrand() {
-    this.router.navigate([], { queryParams: { brandId: this.currentBrand?.brandId }, queryParamsHandling: 'merge', relativeTo: this.route});
+  
+  getAllBrandClass(){
+    if(!this.currentBrand){
+      return "list-group-item active"
+    }else{
+      return "list-group-item "
+    }
   }
-
+    setCurrentBrand(brand: Brand) {
+    this.currentBrand = brand;
+  }
   isCurrentBrand(brand: Brand) {
     if (brand == this.currentBrand) {
       return true
@@ -58,8 +63,4 @@ export class BrandCategoryComponent implements OnInit {
     }
   }
 
-  clearCurrentBrand(){
-    this.currentBrand = undefined;
-    this.router.navigate(['cars/'], { queryParams: { brandId: undefined }, queryParamsHandling: 'merge', relativeTo: this.route});
-  }
 }
