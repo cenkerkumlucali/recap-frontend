@@ -1,4 +1,4 @@
-<h1 align="center"> Recap Frontend  </h1>
+<h1 align="center"> Recap Frontend</h1>
 
 ## About
 
